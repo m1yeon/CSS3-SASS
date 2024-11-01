@@ -1,0 +1,130 @@
+  <!DOCTYPE html>
+  <html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS실습예제05_grid</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+      *{font-family: "Noto Sans KR", sans-serif; color: #222; padding: 0px; margin: 0px;}
+      h2{padding: 30px 20px; text-align: center;}
+      h3{padding: 20px; background: #fff;}
+      /* 공통서식 */
+      article{display: flex; width: 100%; margin: 0px auto; background: #f37022;}
+      article > ul{
+        width: 46%;
+        margin: 0 auto;
+      }
+      ul > li{overflow: hidden;}
+      ul > li img{width: 100%;}
+      .box pre{font-size: 15px; color: #fff; padding-top: 20px;}
+      .t01{color: aquamarine;}
+
+      /* 1 */
+      .g01 > ul{
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(3, auto); 
+        grid-template-rows: repeat(3, auto);
+        list-style: none;
+        padding: 20px 0px;
+      }
+      .g01 > ul > li:nth-child(2){grid-area: 1/2/3/3;}
+
+      .box{width: 46%; margin: 20px auto;
+        border-radius: 20px;
+        background: #333;
+        overflow: hidden;
+      }
+
+      /* 2 */
+      .g02 > ul{
+        display: grid;
+        grid-gap: 20px;
+        grid-template-rows: repeat(2, auto);
+        padding: 20px;
+        grid-template-areas:
+        "g01 g02 g03"
+        "g04 g02 g05"
+        "g08 g07 g06"
+      }
+      .g02 > ul .item1{grid-area: g01;}
+      .g02 > ul .item2{grid-area: g02;}
+      .g02 > ul .item3{grid-area: g03;}
+      .g02 > ul .item4{grid-area: g04;}
+      .g02 > ul .item5{grid-area: g05;}
+      .g02 > ul .item6{grid-area: g06;}
+      .g02 > ul .item7{grid-area: g07;}
+      .g02 > ul .item8{grid-area: g08;}
+    </style>
+  </head>
+  <body>
+    <h2>CSS실습예제05_그리드 레이아웃을 활용한 미에로화이바 갤러리</h2>
+    <article class="g01">
+      <ul>
+        <li><a href="#" title="바로가기"><img src="./img01/mcon5_1.jpg" alt="미에로"></a></li>
+        <li><a href="#" title="바로가기"><img src="./img01/mcon5_12.png" alt="미에로"></a></li>
+        <li><a href="#" title="바로가기"><img src="./img01/mcon5_7.jpg" alt="미에로"></a></li>
+        <li><a href="#" title="바로가기"><img src="./img01/mcon5_3.jpg" alt="미에로"></a></li>
+        <li><a href="#" title="바로가기"><img src="./img01/mcon5_13.png" alt="미에로"></a></li>
+        <li><a href="#" title="바로가기"><img src="./img01/mcon5_9.jpg" alt="미에로"></a></li>
+        <li><a href="#" title="바로가기"><img src="./img01/mcon5_10.png" alt="미에로"></a></li>
+        <li><a href="#" title="바로가기"><img src="./img01/mcon5_11.png" alt="미에로"></a></li>
+      </ul>
+
+      <div class="box">
+        <h3>실습1. 그리드 레이아웃</h3>
+        <pre>
+          .g01 > ul{
+            display: grid;
+            grid-gap: 20px;
+            grid-template-columns: repeat(3, auto); <span class="t01">/* 그리드 칸 수(가로) */</span>
+            grid-template-rows: repeat(3, auto); <span class="t01">/* 그리드 줄 수(세로) */</span>
+            list-style: none;
+            padding: 20px 0px;
+          }
+          .g01 > ul > li:nth-child(2){grid-area: 1/2/3/3;} <span class="t01">/* 그리드 콘텐츠 병합 */</span>
+        </pre>
+      </div>
+      <br>
+    </article>
+    <!-- 2. 그리드 네이밍 -->
+    <article class="g02">
+      <ul>
+        <li class="item1"><a href="#" title="바로가기"><img src="./img01/mcon5_1.jpg" alt="미에로"></a></li>
+        <li class="item2"><a href="#" title="바로가기"><img src="./img01/mcon5_12.png" alt="미에로"></a></li>
+        <li class="item3"><a href="#" title="바로가기"><img src="./img01/mcon5_7.jpg" alt="미에로"></a></li>
+        <li class="item4"><a href="#" title="바로가기"><img src="./img01/mcon5_3.jpg" alt="미에로"></a></li>
+        <li class="item5"><a href="#" title="바로가기"><img src="./img01/mcon5_13.png" alt="미에로"></a></li>
+        <li class="item6"><a href="#" title="바로가기"><img src="./img01/mcon5_9.jpg" alt="미에로"></a></li>
+        <li class="item7"><a href="#" title="바로가기"><img src="./img01/mcon5_10.png" alt="미에로"></a></li>
+        <li class="item8"><a href="#" title="바로가기"><img src="./img01/mcon5_11.png" alt="미에로"></a></li>
+      </ul>
+
+      <div class="box">
+        <h3>실습2. 그리드 레이아웃 _ 네이밍</h3>
+        <pre>
+          .g02 > ul{
+            display: grid;
+            grid-gap: 20px;
+            grid-template-rows: repeat(2, auto);
+            padding: 20px;
+            grid-template-areas: <span class="t01">/* 지정한 이름을 가지고 위치 지정  */</span>
+            "g01 g02 g03"
+            "g04 g02 g05"
+            "g06 g07 g08"
+          }
+          .g02 > ul .item1{grid-area: g01;} <span class="t01">/* 그리드 콘텐츠에 이름 지정 */</span>
+          .g02 > ul .item2{grid-area: g02;}
+          .g02 > ul .item3{grid-area: g03;}
+          .g02 > ul .item4{grid-area: g04;}
+          .g02 > ul .item5{grid-area: g05;}
+          .g02 > ul .item6{grid-area: g06;}
+          .g02 > ul .item7{grid-area: g07;}
+          .g02 > ul .item8{grid-area: g08;}
+        </pre>
+      </div>
+      <br>
+    </article>
+  </body>
+  </html>

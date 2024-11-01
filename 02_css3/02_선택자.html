@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS_02_선택자와 내부, 외부, 인라인 스타일</title>
+  <link rel="stylesheet" href="./css/font_btn.css" type="text/css">
+  <style>
+    .color01{color: #f00;}
+    .box{
+      background: #eee;
+      padding: 20px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    h2{padding: 20px 0px 5px 0px;}
+    h3{font-size: 18px;}
+    .p02{padding-top: 10px;}
+    .p03{padding-bottom: 15px;}
+    .btn01, .btn02{
+      padding:2px 12px;
+      border: 1px solid #333; 
+      border-radius: 20px;
+      text-decoration: none
+    }
+    .btn02{background: #333; color: #fff;}
+    .btn01:hover{background: #333; color: #fff;}
+    .btn02:hover{background: none; color: #333;}
+
+    .hover_act{width: 300px; height: 200px; border-radius: 20px; overflow: hidden; margin-top: 10px;}
+    .hover_act > img{width: 100%; transition: 0.4s;}
+    .hover_act:hover > img{transform: scale(1.1);}
+
+    /* 7. 동위선택자 */
+    .list01{display: flex; gap: 20px;}
+    .list01 > li{padding: 2px 10px; border-radius: 20px;}
+    .list01 > .first + li{background: lightskyblue;}
+    .list01 > .first ~ li:last-child{background: lightsalmon;}
+    .selector07{width: 500px; padding-top: 10px;}
+
+    .list02 > li{padding: 2px 10px; border-bottom: 2px solid #999;}
+    .list02 > li > label{line-height: 40px;}
+    .ans{display: none; background: #ccc;  padding: 0px 20px;}
+    /* 질문을 클릭시 체크박스에 체크가 되면 바로뒤에 있는 동생 답변을 나오게 한다.*/
+    #c01:checked + .ans/*:checked 상태선택자*/{display: block;}
+    #c02:checked + .ans/*:checked 상태선택자*/{display: block;}
+
+    .nav_wrap{
+      margin-top: 10px;
+      width: 300px; height: 340px; border: 1px solid #777;
+      border-radius: 15px;
+      overflow: hidden;
+      box-sizing: border-box;
+      background: rgba(145, 175, 145,.6);
+    }
+    .nav_inner{
+      width: 300px; height: 40px;
+      background: rgb(145, 175, 145);
+      position: relative;
+      line-height: 40px;
+      text-align: center;
+    }
+    .gnb{width: 300px; height: 300px;
+    border: 1px solid #ccc;
+    position: absolute; right: -100%; top: 40px; transition: 0.4s;}
+    .nav_wrap img{width: 300px;}
+    #toggle:checked ~ .gnb{right: 0px; top: 40px;}
+
+    /* 8.속성선택자 */
+    .product{display: flex;}
+    .product li{width:25%; list-style:none; }
+    .product li img{width: 100%; filter: grayscale(1); transition: 0.3s; box-sizing: border-box;}
+
+    .product li:hover img[src]{
+      /* border: 5px solid lightcoral; */
+      filter: grayscale(0);
+    }
+
+    .product li > img[src$='jpg']{border: 3px solid #00f;}
+    .product li > img[src$='gif']{border: 3px double #00ff00;}
+    .product li > img[src$='bmp']{border: 3px dashed #f00;}
+    .product li > img[src$='png']{border: 3px dotted #d12ee0;}
+
+    /* 9. 상태선택자 */
+    /* 브라우저에서 설정된 input태그 테두리 속성제거 */
+    input{outline:none;}
+
+    /* 1. :checked */
+    #id_save:checked + label{color:#e00;}
+
+    /* 2. :focus */
+
+    input[type=text]:focus{border:2px solid lightcoral;background:#ccc;}
+    input[type=password]:focus{border:2px solid lightseagreen;background:#ccc;}
+
+    /* 3. enabled, disabled */
+    /* input[type=button]:enabled{background-color:lightslategray;} */
+    /* input[type=button]:disabled{background-color:#ccc;} */
+
+    #r01, #r02{display:none;}
+    #r01+label, #r02+label{
+      border:1px solid #333;
+      padding:2px 6px; 
+      border-radius: 50%;
+    }
+    input[type=button]{width: 100px; font-size: 16px;}
+    input[type=radio]:checked + label{background:lightskyblue;}
+    .box09{
+      padding-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="../index.html" title="메인페이지 바로가기" class="b_btn">
+      <img src="../images/icon_home.png" alt="icon_home">
+    </a>
+
+    <h2>02_선택자(Selector)</h2>
+    <p><b>선택자의 종류</b> : 클래스 선택자(.class명), 아이디 선택자(#id명), 태그선택자(tag명), 그룹 선택자(a,b),<br>전체 선택자(*), 자손/후손 선택자, 링크 선택자, 반응 선택자, 속성 선택자, 동위 선택자, 구조 선택자, 부정 선택자, 전/후문자 선택자, 클래스 결합/태그와 클래스 결합
+    </p>
+    <br>
+    <div class="box">
+      <h3>1. 기본 선택자 </h3>
+      <p class="p03"><b>클래스 선택자(.class명)</b><br>
+        클래스 선택자는 사용자가 지정한 영역에 서식을 적용하기 위한 선택자로서 한 번 작성된 선택자는 '언제든 다시 사용 할 수 있는 서식'을 적용 할 때 사용한다.<br>
+        class선택자는 사용자가 이름을 작성하여 적용하는데, 이름을 작성할 때 의미있는 이름으로 작성하여 이름 앞에 '.'기호를 붙여주는 것이 특징이다.(=피그마의 컴포넌트와 같은 기능)</p>
+
+      <p class="p03"><b>아이디 선택자(#id명)</b><br>
+        아이디 선택자는 클래스 선택자와 마찬가지로 지정한 영역에 서식을 적용하기 위한 선택자이다.<br>클래스 선택자와 다른 점은 서식을 반복해서 사용하지 않고 중복되지 않는 서식을 만들고자 할 때 사용하며,아이디 이름 작성 시 이름 앞에 #'기호를 붙인다.</p>
+
+      <p><b>태그 선택자(tag명)</b><br>사용자가 지정한 태그를 문서 안에서 찾아 서식을 적용하기 위한 선택자이다. <br>서식이 한꺼번에 변경되기 때문에 실제 사용시 원하지 않는 부분까지도 적용되기 때문에 주의해야한다.</p>
+    </div>
+    <div class="box">
+      <h3>2. 그룹 선택자</h3>
+      <p><b>그룹 선택자란?</b> 선택자(id, class, tag..)를 모아서 한꺼번에 서식을 적용하기 위한 선택자</p>
+      <p><b>작성법</b> A선택자, B선택자, #선택자, .class선택자{속성:값;}</p>
+    </div>
+    <div class="box">
+      <h3>3. 자손, 후손 선택자</h3>
+      <p>html태그는 부모 요소와 자손 요소의 개념으로 작성이 되는데, <br>
+        부모 요소의 바로 아래 자손 요소를 선택하고자 할 때 <b>'자손선택자'</b>,<br>부모요소의 아래 자손요소를 모두 선택하고자 할 때는 <b>'후손선택자'</b>를 사용한다.</p>
+      <p>자손선택자 : A선택자 > B선택자 <br>
+      후손선택자 : A선택자 B선택자</p>
+    </div>
+    <div class="box">
+      <h3>4. 링크선택자</h3>
+      <p><b>link, visited선택자 : </b>href속성을 가진 태그요소(a태그), img태그, 다른 요소의 서식을 적용하기 위한 선택자</p>
+      <p>선택자 앞에 <b>' : '</b> 기호가 들어가는데 이러한 선택자를 '가상클래스'라고 함</p>
+      <p>link(링크가 걸린 상태), :visited(링크가 걸린 태그요소를 클릭한 적이 있는 경우)</p>
+    </div>
+    <div class="box">
+      <h3>5. 반응선택자</h3>
+      <p><b>:hover</b> 마우스로 해당하는 요소에 올리면 서식이 적용됨</p>
+      <p><b>:active</b> 마우스로 해당하는 요소를 클릭하고 있을 경우 서식 적용</p>
+      <p class="p02"><a href="#" class="btn01">BUTTON01</a> <a href="#" class="btn02">BUTTON02</a></p>
+      <div class="hover_act">
+        <img src="./images/korea-2777849_1280.jpg" alt="예시이미지">
+      </div>
+    </div>
+    <div class="box">
+      <h3>6. 구조선택자</h3>
+      <p><b>구조선택자는 부모와 자식요소 태그 관계에서 자식 요소들을 선택하고자 할 때 사용</b>하는데, <br>자식요소들 중 첫번째, 마지막, n번째, 짝수/홀수번째를 찾아 서식을 적용하고자 할 때 많이 사용함</p>
+      <p>구조선택자의 종류<b>1. 일반구조 선택자 2. 형태구조선택자</b></p><br>
+      <h4>(1) 일반구조 선택자</h4>
+      <p>부모 요소 안에 같은 태그들의 자식 요소들이 있는 경우 사용</p>
+      <ul>
+        <li><b>:first-child</b> - 자식 요소들 중 첫번째를 선택</li>
+        <li><b>:last-child</b> - 자식 요소들 중 마지막을 선택</li>
+        <li><b>:nth-child(n)</b> - 자식 요소들 중 n번째를 선택</li>
+        <li><b>:nth-last-child(n)</b> - 자식 요소들 중 뒤에서 n번째를 선택</li>
+      </ul>
+      <br>
+      <h4>(2) 형태구조 선택자</h4>
+      <p>부모요소 안에 각각 다른 태그들의 자식 요소들이 있는 경우 사용</p>
+      <ul>
+        <li><b>:first-of-type</b> - 형태가 다른 자식 요소들 중 첫번째를 선택</li>
+        <li><b>:last-of-type</b> - 형태가 다른 자식 요소들 중 마지막을 선택</li>
+        <li><b>:nth-of-type(n)</b> - 형태가 다른 자식 요소들 중 n번째를 선택</li>
+        <li><b>:nth-last-of-type(n)</b> - 형태가 다른 자식 요소들 중 뒤에서 n번째를 선택</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>7. 동위선택자(+, ~)</h3>
+      <p><b>동위선택자란</b> 부모요소의 아래 자식요소들의 관계에서 기준을 정하고, 그 <b>기준이 되는 요소의 바로 뒤나 뒤부터 나오는 요소를 모두 선택 또는 뒤에 있는 형제들 중 하나를 선택</b> 하고자 할 때 사용하는 선택자</p>
+      <p>선택자A + 선택자B : 선택자 A의 <b>바로 뒤에 위치한</b> 선택자B를 선택</p>
+      <p>선택자A ~ 선택자B : 선택자 A의 <b>뒤에 있는 요소들 중</b> 선택자 B를 선택</p>
+
+      <ol class="list01">
+        <li class="first">num1</li>
+        <li>num2</li>
+        <li>num3</li>
+        <li>num4</li>
+        <li>num5</li>
+      </ol>
+      <img src="./images/selector07_2.JPG" alt="동위선택자 스타일 서식 예시" class="selector07">
+      <br><br>
+      <h4>실습예제01_동위선택자를 활용한 아코디언탭</h4>
+      <ul class="list02">
+        <li>
+          <label for="c01">Question1</label>
+          <input type="checkbox" id="c01">
+          <p class="ans">Answer1</p>
+        </li>
+
+        <li>
+          <label for="c02">Question2</label>
+          <input type="checkbox" id="c02">
+          <p class="ans">Answer2</p>
+        </li>
+        <br>
+        <h4>실습예제02_동위선택자를 활용한 내비게이션 구현</h4>
+        <div class="nav_wrap">
+          <div class="nav_inner">
+            <input type="checkbox" id="toggle">
+            <label for="toggle" class="t_btn">행운 부적</label>
+            <nav class="gnb"><img src="./images/lucky.jpg" alt="러키"></nav>
+          </div>
+        </div>
+    </div>
+    <div class="box">
+      <h3>8. 속성선택자</h3>
+      <p><b>속성선택자는 html 태그요소에 있는 속성(href, src, alt, type, title, ...)을 선택하여 서식을 적용하고자 할 때 사용</b>하는 선택자로서 1.기본속성 2.문자열속성 선택자가 있음</p>
+      <br>
+      <h4>1. 기본속성 선택자</h4>
+      <p><b>선택자[속성]</b> : 사용자가 선택한 요소 안에 '속성'이 일치하는 요소를 선택한다.</p>
+      <p><b>선택자[속성=값]</b> : 사용자가 선택한 요소안에 '속성=값'이 일치하는 요소를 선택. 개별 서식 적용 가능</p>
+      <br>
+      <h4>2. 문자열 속성 선택자 (잘 사용하지 않음)</h4>
+      <p>속성값 안에 있는 '문자열' 값에서 사용자가 찾고자 하는 문자를 선택하여 서식을 적용</p>
+      <ul>
+        <li>선택자[속성/(파이프라인)=값] : 특정 값이 포함된 속성을 선택</li>
+        <li>선택자[속성^(써컴플렉스)=값] : 시작하는 단어가 포함된 속성 선택</li>
+        <li>선택자[속성$(달러사인)=값] : 끝나는 단어가 포함된 속성 선택</li>
+        <li>선택자[속성*(아스테리스크)=값] : 문자열 안에서 해당 단어 포함된 속성을 선택</li>
+        <li>선택자[속성~(릴트)=값] : 여러 값들 중 특정 '값'이 포함되어 있을 때 선택</li>
+      </ul>
+      <br>
+      <h4>3. 실습예제</h4>
+      <p>이미지 확장자별(jpg, png, gif, bmp)로 테두리 속성을 각각 다르게 넣어서 적용하고, 마우스 오버시 같은 테두리 색상(5px, 노랑색)이 나오게 서식을 적용한다.</p>
+      <ul class="product">
+        <li><img src="./images/photo01.jpg" alt="jpg이미지"></li>
+        <li><img src="./images/photo02.gif" alt="git이미지"></li>
+        <li><img src="./images/photo03.bmp" alt="bmp이미지"></li>
+        <li><img src="./images/photo04.png" alt="png이미지"></li>
+      </ul>
+    </div>
+    <div class="box">
+      <h4>9. 상태선택자</h4>
+      <p>입력 양식의 상태를 선택하고자 할 떄 사용하는 선택자이다.</p>
+      <p>
+        :checked - 양식을 체크한 상태<br>
+        :focus - 초점이 맞추어진 상태<br>
+        :enabled - 사용이 가능한 요소를 선택<br>
+        :disabled - 사용이 불가능한 요소를 선택
+      </p>
+      <p>'검색양식' ,'id,pw입력방식'을 클릭시 테두리 색상 변경 = focus선택자 사용</p>
+      <p>로그인 양식 '아이디저장' 체크박스 클릭시 아래 내용 나오거나 숨기기, 본인인증 페이지의 약관동의 클릭시 버튼색 변경 = checked 선택자 사용</p>
+      <form action="send.php" name="login" method="post">
+        <fieldset>
+          <legend>로그인 양식</legend>
+          <p><label>아 이 디 : </label><input type="text" maxlength="16">
+          <p><label>패스워드 : </label><input type="password" maxlength="16"></p>
+          <p><input type="checkbox" id="id_save"><label for="id_save">아이디 저장</label></p>
+          <p><input type="button" value="로그인"></p>
+        </fieldset>
+      </form>
+
+      <div class="box09">
+        <label>성별선택 : </label>
+        <input type="radio" id="r01" name="gender"><label for="r01">남</label>
+        <input type="radio" id="r02" name="gender"><label for="r02">여</label>
+      </div>
+    </div>
+
+
+
+  </div>
+  <br>
+
+<!-- <h2 class="color01">02_선택자와 내부, 외부, 인라인 스타일</h2>
+<h3>2. 스타일 서식 정요하는 방법 3가지 연습하기</h3>
+<li>내부스타일</li>
+<li>외부스타일</li>
+<li>인라인스타일</li>-->
+
+</body>
+</html>

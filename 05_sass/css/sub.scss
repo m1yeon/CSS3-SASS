@@ -1,0 +1,28 @@
+//sub.scss
+@charset "utf-8";
+
+//변수에 색상값 저장
+$color01: #c00;
+$font_size_title:30px;
+$border01: 1px solid #333;
+
+
+//의사클래스로서 문서 트리의 요소를 선택하는 선택자로서 html요소를 선택함을 뜻함
+:root{color:#333;}
+
+
+
+
+
+
+//color01 변수값 적용
+h3{
+  color: $color01; 
+  font-size: $font_size_title;
+}
+
+p{
+  color:--var(color);
+}    
+
+ul > li:nth-child(2){  border: $border01;}

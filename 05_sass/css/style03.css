@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hi+Melody&family=Noto+Sans+KR:wght@100..900&display=swap");
+* {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+h2 {
+  font-size: 22px;
+  color: #03045E;
+}
+
+.title01 {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 20px;
+  color: #DD4A48;
+}
+
+.btn1, .btn2 {
+  padding: 6px 18px;
+  color: #fff;
+  border: none;
+  border-radius: 35px;
+  box-shadow: 0px 0px 5px 0px rgba(3, 3, 3, 0.5);
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.btn1 {
+  background: #DD4A48;
+}
+
+.btn2 {
+  background: #03045E;
+}
+
+pre {
+  display: inline-block;
+  width: 500px;
+  padding-top: 15px;
+  padding-right: 25px;
+  background: #eee;
+}
+
+.p01 {
+  width: 500px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.btn3 {
+  font-family: "Hi Melody", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  padding: 6px 18px;
+  border-radius: 30px;
+  background: #91C483;
+  transition: 0.5s;
+}
+
+.btn4 {
+  font-family: "Hi Melody", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  padding: 6px 18px;
+  border-radius: 30px;
+  background: #FFC0D3;
+  transition: 0.5s;
+}
+
+.btn3:hover, .btn4:hover {
+  background: #FFE162;
+  box-shadow: 0px 0px 5px 0px rgba(3, 3, 3, 0.5);
+}
+
+.toggle_btn, .toggle {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  position: relative;
+}
+
+.bar {
+  position: absolute;
+  display: inline-block;
+  width: 38px;
+  height: 3px;
+  background: #333;
+  transition: 0.5s;
+  left: 1px;
+}
+
+.bar1, .t1 {
+  top: 5px;
+}
+
+.bar2, .t2 {
+  top: 18.5px;
+}
+
+.bar3, .t3 {
+  bottom: 5px;
+}
+
+.rotate1 {
+  transform: rotate(45deg);
+  top: 18.5px;
+}
+
+.rotate2 {
+  display: none;
+}
+
+.rotate3 {
+  transform: rotate(-45deg);
+  bottom: 18.5px;
+}
+
+#toggle:checked ~ .toggle_btn > .bar1 {
+  transform: rotate(45deg);
+  top: 18.5px;
+}
+
+#toggle:checked ~ .toggle_btn > .bar2 {
+  display: none;
+}
+
+#toggle:checked ~ .toggle_btn > .bar3 {
+  transform: rotate(-45deg);
+  bottom: 18.5px;
+}
+
+.sns i {
+  font-size: 30px;
+  transition: 0.5s;
+  padding: 10px;
+  background: #333;
+  color: #fff;
+}
+
+.sns i:hover {
+  background: #DD4A48;
+}/*# sourceMappingURL=style.css.map */

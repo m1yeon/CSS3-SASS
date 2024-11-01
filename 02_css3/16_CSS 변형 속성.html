@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/font_btn.css" type="text/css">
+  <title>CSS_15_CSS 변형 속성</title>
+  <style>
+    h2{padding: 20px 0px 5px 0px; }
+    h3{padding:5px 0px 10px 0px; font-size: 20px; margin-top: 0px;}
+    p{font-size: 16px;}
+    a{color: #333;}
+    a:hover{text-decoration: none;}
+    .box{background: #eee; padding: 20px; border-radius: 20px; margin-bottom: 20px;}
+
+    .bdr{display: flex;}
+    .bdr > li{ width: 140px; height: 140px; background: #C0D8C0; padding: 0px; margin: 0px; text-align: center; margin-right: 20px; font-size: 14px;}
+    .br1{border-radius: 50%;}
+    .br2{border-radius: 20px;}
+    .br3{border-top-left-radius: 20px;}
+    .bdr > li.br4{width: 120px; height: 120px; border-radius: 50%; overflow: hidden; border: 10px solid #fff;}
+    .br4 > img{width: 100%;}
+
+    .p01, .p02{font-size: 24px; font-weight: bold;}
+    .p01{text-shadow: 5px 5px 5px #333; padding: 20px;;}
+    .p02{background: #333; color: #fff; text-shadow: 5px 5px 5px #fff; padding: 20px;}
+    .imgS{
+      width: 300px; height: 360px;
+      background: #fff;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 4px 6px 6px rgba(7,7,7,.25);
+      margin-top: 20px;
+    }
+    .imgS img{width: 280px; padding-top: 10px;}
+    .imgS span{display: inline-block; line-height: 60px;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="../index.html" title="메인페이지 바로가기" class="b_btn">
+      <img src="../images/icon_home.png" alt="icon_home">
+    </a>
+    <h2>16_CSS 변형 속성</h2>
+    <p><b>border-radius</b> : 모서리 둥글게(px/%)</p>
+    <p><b>shadow</b> : 그림자(박스, 텍스트)</p>
+    <p><b>2/3차원 변형(transform)</b></p>
+    <br>
+    <div class="box">
+      <h3>1. border-radius</h3>
+      <ul class="bdr">
+        <li class="br1">border-radius :50%;</li>
+        <li class="br2">border-radius :10px;</li>
+        <li class="br3">border-top-left-radius :10px;</li>
+        <li class="br4"><img src="./images/dog5.jpg" alt="개"></li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>2. 그림자(shadow) 속성 _ 텍스트/박스</h3>
+      <p>shadow 속성은 문자, 이미지, 블럭 요소에 그림자 효과를 적용하고자 할 때 사용하는 속성</p>
+      <p><b>작성법</b> text-shadow or box-shadow : x(가로방향) y(세로방향) offset(번지는 값) 색상</p>
+
+      <p class="p01">텍스트에 그림자 효과주기</p>
+      <p class="p02">텍스트에 그림자 효과주기</p>
+      
+      <div class="imgS">
+        <img src="./images/dog5.jpg" alt="개">
+        <span>이미지에 그림자 효과주기</span>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>

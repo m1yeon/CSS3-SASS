@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS_05_박스모델 계산하기</title>
+  <link rel="stylesheet" href="./css/font_btn.css" type="text/css">
+  <style>
+    h2,h3{padding: 20px 0px 5px 0px;}
+    h3{font-size: 18px;}
+    .box{
+      background: #eee;
+      padding: 0px 20px 20px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    .b{background: #ECB390;}
+    .in{background: #C0D8C0; margin-right: 20px; padding: 0px 20px;}
+
+    .box-model{width: 150px; height: 150px; background: #C0D8C0; border-radius: 10px;}
+
+    #box02{
+      border:3px solid #f00;
+      padding:10px;
+    }
+    #box03{
+      margin:10px 20px;
+      padding:12px 20px;
+      border-left:5px solid lightcoral;
+      border-top:3px double lightgreen;
+      border-bottom:4px dotted lightseagreen;
+      border-right:1px dashed #000;
+    }
+    #box04{
+      width:350px;
+      padding:10px 0 30px;
+      margin:5px 3px 10px;
+      border:4px solid #f00;
+    }
+    #box05{
+      width: 240px;
+      font-size: 14px;
+      padding:4px 8px;
+      border:4px solid lightseagreen;
+      box-sizing: border-box; /*이 속성을 넣어주면 기본 박스의 크기는 동일하게 유지해줌, 
+      -> 크기가 밖으로 나가지 않게 해주는 대신 안에 내용 영역이 줄어듬*/
+    } 
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="../index.html" title="메인페이지 바로가기" class="b_btn">
+      <img src="../images/icon_home.png" alt="icon_home">
+    </a>
+    <h2>05_박스모델 계산하기</h2>
+    <p>웹표준 레이아웃을 위해 태그의 성격과 박스 크기의 계산하는 방식을 익혀본다.</p>
+    <br>
+    <div class="box">
+      <h3>1. 가시속성</h3>
+      <p>&#8226; html태그는 저마다 보이지 않는 특성을 가지고 있는데 이것을 'display'속성(성격)이라고 함</p>
+      <p>&#8226; <b>display 종류</b> : block, inline, inline-block, table, cell, none, flex, grid ...</p>
+      <br>
+      <h4>블럭요소</h4>
+      <p>&#8226; 크기를 주지 않아도 오른쪽 끝까지 영역을 차지하고 있기 때문에 다음에 들어가는 내용이 자동으로 줄바꿈됨<br>&#8226; 내가 원하는 사이즈를 설정할 수 있음</p>
+      <p>&#8226; div, nav, header, main, footer, ul, li, ol, dl, dt, dd, p ,hr, h1~h6, fieldset, figure, table 등</p>
+      <div class="b">블럭요소</div>
+      <br>
+      <h4>인라인요소</h4>
+      <p>&#8226; 인라인 요소는 줄이 바뀌지 않고, 옆으로 나란히 배치됨<br>&#8226; 사이즈를 따로 지정할 수 없고, margin/padding값을 줘야함</p>
+      <p>&#8226; 인라인 요소를 가운데로 배치하기 위해서는 <br>1. text-align: center;<br> 2. 요소의 성격을 바꾸어줌 display: block or inline-block;</p>
+      <p>&#8226; s, ins, span, i, b, mark, sub, sup, small, strong, em, a 등</p>
+      <span class="in">인라인요소</span><span class="in">인라인요소</span>
+      <br><br>
+      <h4>인라인블럭요소</h4>
+      <p>&#8226; input, img(크기값을 가질 수 있음, 문자처럼 줄변경을 해야 줄이 변경됨)</p>
+    </div>
+    <div class="box">
+      <h3>2. 박스모델(box-model) 계산하기</h3>
+      <p>&#8226; 블럭요소가 가질 수 있는 크기 값을 계산하는 방법을 '박스모델'이라고 하며<br>&#8226; width, height, margin, padding, border 속성 값을 설정할 수 있음</p>
+
+      <p>&#8226; <b>width, height</b> : 크기를 지정할 때 사용하며 단위는 px, %단위를 주로 사용</p>
+      <p>&#8226; <b>border</b> : 테두리를 지정하고자 할 때 ㅏㅅ용하며 선택한 요소의 상/하/좌/우에 선을 줄 수 있음</p>
+      <p>&#8226; <b>margin</b> : 선택한 요소를 기준으로 바깥쪽으로 여백을 설정하고자 할 때 사용하며,상/하/좌/우 순으로 값을 줄 수 있으며, 모두 같은 값을 주거나, 좌/우, 상/하 따로 설정이 가능함</p>
+      <p>&#8226; <b>padding</b> : 선택한 요소를 기준으로 안쪽 여백을 설정하고자 할 때 사용하며 작성법은 margin값 설정과 같음</p>
+      <p>&#8226; <b>박스크기 계산하기 = width or height + padding + margin + border</b></p>
+
+      <div id="box01" class="box-model">박스크기 계산하기 150*150</div>
+      <div id="box02" class="box-model">박스크기 계산하기<br>150*150 / border:3px / padding:10px<br>=>163*163</div>
+      <div id="box03" class="box-model">박스크기 계산하기<br>margin:10px 20px / padding:12px 20px / border: 3px 1px 4px 5px
+      <br>196*177
+      </div>
+      <div id="box05" class="box-model">박스크기 계산하기<br>width:240 / padding:4px 8px; / border:4px / box-sizing:border-box;<br>=>240*150(설정한 박스크기는 동일하게 유지하면서 padding, border값이 유지됨)</div>
+      <br>
+      <p>&#8226; <b>box-sizing</b> : css3에서 추가된 속성으로 원래 크기의 박스요소에서 패딩, 테두리 값을 포함하여 크기를 계산하는 속성<br>단, 마진값은 포함하지 않음</p>
+      <p>&#8226; box-sizing: border-box; 박스크기에 테두리, 패딩값을 포함</p>
+      <p>&#8226; box-sizing: content-box; 박스크기가 콘텐츠양에 따라 커짐(기본)값</p>
+    </div>
+  </div>
+  <br>
+</body>
+</html>

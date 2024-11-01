@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>실습예제02_보노보노처럼 살다니 다행이야</title>
+  <style>
+    *{color: #333;}
+    /*position은 겹치는 성격을 가지고 있기 때문에 이미지를 배치할때에는 float속성을 사용하는게 더 좋음*/
+  .book_img{float:left; padding:0px 40px 40px 0px; height: 400px;} 
+    
+
+  .free_deli_icon{font-size:14px; padding: 0px 2px;}
+  .con01{border: 1px solid #4747d3; color: #fff; background: #7777c4;}
+  .con02{border: 1px solid #ccc;}
+
+  div{line-height: 16px; }
+  h2{color: #4747d3;}
+  article p{font-size: 14px;}
+
+    .star{color: #c72c2c; font-size: 24px;}
+
+    a.review_icon{ text-decoration: none; color: #4747d3; padding: 2px 2px; border: 1px solid #bbb;}
+
+    .txt01{color:#c72c2c;}
+
+    article select{width: 210px; padding: 5px; border: 1px solid #bbb;}
+
+    .price01{font-size: 24px; font-weight: bold; color: #c72c2c;}
+
+    .sale_info{color: #4747d3; font-weight: bold;}
+
+    .price02{font-size: 20px; font-weight: bold; color: #4747d3;}
+
+    .point{text-decoration: none; border: 1px solid #bbb; padding: 2px 4px;}
+
+    .loca_con{text-decoration: none; color: #c72c2c; font-size: 15px; font-weight: bold; border: 1px solid #bbb; padding: 6px 60px;}
+  </style>
+</head>
+<body>
+  <!-- section, article태그는 꼭 제목 써줘야함 -->
+  <article>  
+    <img src="./book.jpg" alt="" class="book_img">
+  <div>
+    <span class="free_deli_icon con01"  >오늘의 책</span>
+    <span class="free_deli_icon con02">이벤트</span>
+    <span class="free_deli_icon con02">무료배송</span>
+    <h2>보노보노처럼 살다니 다행이야(특별판)</h2>
+      <p>김신희 지음 ㅣ 이가라시 미키오 그림 ㅣ 놀 ㅣ 2017년 04월 06일 출간</p>
+      <p><span class="star">&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;</span> 리뷰82개 <a href="#" title="리뷰쓰기" class="review_icon">리뷰쓰기</a></p>
+      <p>국내도서 주간베스트 <span class="txt01">13</span>위 ㅣ 시/에세이 주간베스트 <span class="txt01">4</span>위 &nbsp;
+        <select>
+          <option value="">주요 일간지 북섹션 추천도서</option>
+          <option value="">전지적 푸바오 시점</option>
+          <option value="">생각이 너무 많은 어른들을 위한 심리학</option>
+          <option value="">그대들 어떻게 살 것인가</option>
+        </select></p>
+    <br>
+    <hr>
+    <br>
+      <p>정가 : 16,000원</p>
+      <p>판매가 : <span class="price01">14,400원</span> <span class="sale_info">[10%&#x2193; 1,600원 할인]</span></p>
+      <p>제휴할인가 : <span class="price02">13,680원</span>교보-KB국민카드 5% 청구할인(실적무관) <a href="#" title="카드/포인트 안내" class="point">카드/포인트 안내</a></p>
+      <p>통합포인트 : <b>800</b>원 적립 <span class="sale_info">[5% 적립]</span></p>
+      <br>
+      <p><a href="#" title="재고, 위치 안내" class="loca_con">영업점 재고 / 위치 ></a></p>
+    </div>
+  </article>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/font_btn.css" type="text/css">
+  <title>CSS_17_transform 속성</title>
+  <style>
+    h2{padding: 20px 0px 5px 0px; }
+    h3{padding:5px 0px 10px 0px; font-size: 20px; margin-top: 0px;}
+    p{font-size: 16px;}
+    a{color: #333; text-decoration: none;}
+    a:hover{text-decoration: underline;}
+    .box{background: #eee; padding: 20px; border-radius: 20px; margin-bottom: 20px;}
+
+    /* 실습1. trnasform의 각 세부속성 실습하기 */
+    .trans_box{display: flex;}
+    .trans_box > li{width: 25%;}
+    .trans_box > li > .title{padding-bottom: 20px; font-weight: 600; display: block;}
+    .trans_box > li > .hoverB{
+      display: inline-block;
+      width: 140px; height: 140px;
+      background: #c0d8c0;
+      transition: 0.4s;
+    }
+    .trans_box > li > .hoverB:hover{background: #99b599;}
+    .box1:hover{ transform: scale(1.1);}
+    .box2:hover{transform: rotate(90deg);}
+    .box3:hover{transform: skew(10deg);}
+    .box4:hover{transform: translate(20px, 20px);}
+
+    .e_box{position: relative;}
+    .m_btn > a{
+      position: absolute;
+      top: 27.5px; left: 300px;
+      background: #333; color: #fff;
+      font-size: 14px;
+      border-radius: 30px;
+      padding: 4px 10px;
+    }
+
+    /* 실습2. 리본타이틀 */
+    .rb_title{
+      /* position: fixed; */
+      background: #FF5C8D;
+      padding: 8px;
+      width: 300px; line-height: 30px; text-align: center;
+      position: fixed;
+      top: 40px;
+      right: -100px;
+      transform:rotate(45deg);
+      box-shadow: 0px 0px 7px #84314a;
+    }
+    .rb_title > a{
+      font-size: 14px;
+      display: inline-block;
+      width: 100%; height: 30px;
+      border-top: 2px dashed #fff;
+      border-bottom: 2px dashed #fff;
+      color: #fff;
+    }
+
+    /* 실습3. 이미지 갤러리 */
+    input[type=radio]{display: none;}
+    .gallery label{
+      background: rgba(113, 102, 106, 0.523);
+      font-size: 0px;
+      padding: 6px;
+      border-radius: 50%;
+    }
+
+    .gallery{
+      margin: 0 auto;
+      width: 400px; height: 400px;
+      overflow: hidden;
+      position: relative;
+      text-align: center;
+      box-shadow: 0px 0px 12px  rgba(5,5,5,.8);
+      border-radius: 15px;
+    }
+    .gallery > ul{
+      display: flex;
+      position: relative;
+      left: 0px;
+      width: 1600px;
+      transition: 0.6s;
+    }
+    .gallery > ul > li{width: 400px; height: 400px; transition: 0.6s; overflow: hidden;}
+    .gallery > ul > li img{height: 100%; width: 100%; transition: 0.6s;}
+    .gallery > ul > li:hover img{transform: scale(1.1); vertical-align: top; display: block;}
+
+    /* 컨트롤버튼 클릭시 ul태그에 위치속성값을 넣어서 해당 사진 나오게 하기 */
+    #r01:checked ~ ul.g_inner{left: 0px;}
+    #r02:checked ~ ul.g_inner{left: -400px;}
+    #r03:checked ~ ul.g_inner{left: -800px;}
+    #r04:checked ~ ul.g_inner{left: -1200px;}
+
+    /* 라디오 버튼 체크 되었을 때 컬러 바뀌게 하기 */
+    #r01:checked ~ .pagenation label[for=r01]{background: #FF5C8D;}
+    #r02:checked ~ .pagenation label[for=r02]{background: #FF5C8D;}
+    #r03:checked ~ .pagenation label[for=r03]{background: #FF5C8D;}
+    #r04:checked ~ .pagenation label[for=r04]{background: #FF5C8D;}
+
+    .pagenation{position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="../index.html" title="메인페이지 바로가기" class="b_btn">
+      <img src="../images/icon_home.png" alt="icon_home">
+    </a>
+    <h2>17_transform속성_2/3차원 변형</h2>
+    <p>transform 속성을 사용하여 사용자가 선택한 요소의 크기를 변경(scale)하거나, 기울기(skew), 회전(rotate), 위치 이동(translate)을 하기 위한 속성</p>
+    <p><b>scale</b> : 크기를 조정하기 위한 속성으로 %를 소수점으로 환산하여 값을 입력하고, 요소의 가운데를 기준으로 크기가 커지거나 작아짐</p>
+    <p><b>rotate</b> : 선택한 요소를 회전하기 위한 속성이며 각도 입력시 deg 단위를 사용</p>
+    <p><b>skew</b> : 선택한 요소를 기우링기 위한 속성이며 각도 입력시 deg 단위를 사용</p>
+    <p><b>translate</b> : 선택한 요소의 위치를 이동하기 위한 속성이며 position:relative와 같은 현재 위치를 기준으로 요소가 이동됨(x/y/r값 설정)</p>
+    <br>
+    <!-- 실습1. trnasform의 각 세부속성 실습하기 -->
+    <div class="box e_box">
+      <h3>1. transform 속성 사용해보기</h3>
+      <span class="m_btn"><a href="./17_2_transform_example.html" title="transform예제">더보기+</a></span>
+      <ul class="trans_box">
+        <li>
+          <span class="title">1. scale <br>마우스 오버시 크기 조절</span>
+          <span class="hoverB box1"></span>
+        </li>
+        <li>
+          <span class="title">2. rotate<br>마우스 오버시 회전</span>
+          <span class="hoverB box2"></span>
+        </li>
+        <li>
+          <span class="title">3. skew<br>마우스 오버시 기울기 조절</span>
+          <span class="hoverB box3"></span>
+        </li>
+        <li>
+          <span class="title">4. translate<br>마우스 오버시 위치 이동</span>
+          <span class="hoverB box4"></span>
+        </li>
+      </ul>
+    </div>
+    <!-- 실습2. 리본타이틀 -->
+    <div class="box">
+      <h3>2. 리본 타이틀 구현하기</h3>
+      <p><a href="https://projects.verou.me/prefixfree/" title="리본타이틀 참고 사이트">https://projects.verou.me/prefixfree/</a></p>
+      <p><b>prefixfree.min.js</b> : CSS의 새로운 속성이 추가되면 코드를 작성 할 때마다 접두사를 붙여주게 되는데, 브라우저에서 지원하지 않는 속성은 화면에 표시되지 않기 때문에 실험적으로 '접두사'를 붙여주어 임시로 적용 할 수 있게 함</p>
+      <p>아래 브라우저별 접두사를 새로운 속성 작성 시 매번 작성하기 번거롭기 때문에 js파일을 html 문서에 연결하면 자동으로 접두사가 붙어 문제를 해결 할 수 있음</p>
+      <p> <b>새로나온 CSS속성은 항상 caniuse.com에서 조회를 한 후 브라우저 버전별로 속성이 지원되는지 여부를 확인하고 사용</b>함(빨강색이 미지원 버전)</p>
+      <p><b>-ms- : 엣지, -o- : 오페라, -webkit- : 크롬, 사파리, -moz- : 모질라 파이어폭스</b></p>
+      <div class="rb_title">
+        <a href="https://projects.verou.me/prefixfree/" title="위로 바로가기">Fork me on Github</a>
+      </div>
+    </div>
+    <!-- 실습3. 이미지 갤러리 -->
+    <div class="box">
+      <h3>3. 콘트롤 버튼이 드렁간 이미지 갤러리 구현하기</h3>
+      <p>변형 속성과 애니메이션 속성을 활용하여 이미지 갤러리 구현하기<br>이미지 4장과 라디오 버튼을 사용하여 클릭시 해당하는 사진이 각각 슬라이드 되면서 나오도록 함</p>
+      <br>
+      <div class="gallery">
+        <input type="radio" name="btn" id="r01" checked><!-- 라디오 버튼에 checked 넣어주면 그게 이미 선택되어 있음 -->
+        <input type="radio" name="btn" id="r02">
+        <input type="radio" name="btn" id="r03">
+        <input type="radio" name="btn" id="r04">
+        <ul class="g_inner">
+          <li><a href="javascript:void(0)" title=""><img src="./images/dog2.jpg" alt="이미지"></a></li>
+          <li><a href="javascript:void(0)" title=""><img src="./images/dog3.jpg" alt="이미지"></a></li>
+          <li><a href="javascript:void(0)" title=""><img src="./images/dog4.jpg" alt="이미지"></a></li>
+          <li><a href="javascript:void(0)" title=""><img src="./images/dog5.jpg" alt="이미지"></a></li>
+        </ul>
+        <div class="pagenation">
+          <label for="r01">1</label>
+          <label for="r02">2</label>
+          <label for="r03">3</label>
+          <label for="r04">4</label>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</body>
+</html>

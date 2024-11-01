@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS실습예제06_background</title>
+  <!-- 1. 초기화 -->
+<link href="./css/reset.css" rel="stylesheet" type="text/css">
+
+<!-- 2. 기본서식 -->
+<link href="./css/1117_base.css" rel="stylesheet" type="text/css">
+
+<!-- 3. 레이아웃 -->
+<link href="./css/1117_common.css" rel="stylesheet" type="text/css">
+
+<!-- 5. 스와이퍼 슬라이드 서식 -->
+<link href="./css/swiper.css" rel="stylesheet" type="text/css">
+<!-- 7. 스와이퍼 슬라이트 스크립트 소스 -->
+<script src="./script/swiper.js"></script>
+
+<style>
+  /* body{width: 490px;} */
+</style>
+
+</head>
+<body id="top">
+  <!-- 헤더 -->
+<form name="검색폼" method="post" action="send.php">
+  <header>
+    <h1><a href="index.html" title="메인 바로가기">상단로고</a></h1>
+
+  <fieldset>
+    <legend>검색폼</legend>
+    <input type="search" placeholder="검색어 입력" id="search_box">
+    <label for="search_box">검색버튼</label>
+  </fieldset>
+
+  <label class="total_btn">전체메뉴</label>
+  <a href="cart.html" title="장바구니 바로가기" class="cart_btn">장바구니</a>
+  <a href="login.html" title="로그인 바로가기" class="login_btn">로그인</a>
+
+  <!--상단 내비게이션 -->
+  <nav class="gnb">
+    <ul>
+      <li><a href="#" title="홈">홈</a></li>
+      <li><a href="#" title="스마일배송">스마일배송</a></li>
+      <li><a href="#" title="베스트">베스트</a></li>
+      <li><a href="#" title="당일배송">당일배송</a></li>
+      <li><a href="#" title="홈쇼핑">홈쇼핑</a></li>
+      <li><a href="#" title="백화점">백화점</a></li>
+      <li><a href="#" title="패션">패션</a></li>
+      <li><a href="#" title="공간">공간</a></li>
+    </ul>
+  </nav>
+
+  <!-- 하단 내비게이션 -->
+  <nav class="f_tab_mnu">
+    <ul>
+      <li><a href="#" title="카테고리"><span class="icon01">&nbsp;</span><span>카테고리</span></a></li>
+      <li><a href="#" title="쿠폰혜택" ><span class="icon02">&nbsp;</span><span>쿠폰혜택</span></a></li>
+      <li><a href="#" title="검색" ><span class="icon03">&nbsp;</span><span>검색</span></a></li>
+      <li><a href="#" title="my페이지" ><span class="icon04">&nbsp;</span><span>my페이지</span></a></li>
+      <li><a href="#" title="최근본상품" ><span class="icon05">&nbsp;</span><span>최근본상품</span></a></li>
+    </ul>
+  </nav>
+  </header>
+
+
+  <!-- 메인 -->
+  <main>
+<img src="./images/gmain.png" alt="메인 콘텐츠 이미지">
+  </main>
+
+  <!-- 푸터 -->
+<footer>
+<nav class="f_top_btn">
+  <ul>
+    <li><a href="login.html" title="로그인 페이지 바로가기">로그인</a></li>
+    <li><a href="http://www.gmarket.co.kr/" title="pc버전 바로가기">PC버전</a></li>
+    <li><a href="http://mobile.gmarket.co.kr/CustomerCenter" title="고객센터 바로가기">고객센터</a></li>
+  </ul>
+</nav>
+
+<h2>(주)이베이 코리아 사업자 정보 
+<label for="f_toggle">&#x2228;</label></h2>
+<input type="checkbox" id="f_toggle">
+
+<address>
+  <dl>
+    <dt>업무집행자</dt><dd>0000</dd>
+    <dt>사업자등록번호</dt><dd>000-000-0000</dd>
+    <dt>통신판매업신고</dt><dd>강남 0000호</dd>
+    <dt>주소</dt><dd>서울시 강남구 테헤란로 000000(강남파이낸스센터)</dd>
+    <dt>고객센터</dt><dd>000-0000<br>
+          gmarket&#64;corp.gmarket.co.kr<br>
+          상담가능시간 오전 9시 ~ 오후 6시(토요일 공휴일 휴무)
+    </dd>
+  </dl>
+</address>
+
+<nav class="f_lnb">
+  <a href="#" title="사업자정보확인">사업자정보확인</a>&middot;
+  <a href="#" title="개인정보처리방침">개인정보처리방침</a>&middot;
+  <a href="#" title="이용약관">이용약관</a>
+</nav>
+
+<p class="copy">Copyright&copy; eBay Korea LLC ALL rights reserved.</p>
+
+<span><a href="#top" title="위로 바로가기" class="top_btn" >top버튼</a></span>
+  </footer>
+</form>
+</body>
+</html>

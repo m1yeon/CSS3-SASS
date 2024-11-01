@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/font_btn.css" type="text/css">
+  <title>CSS_18_반응형 웹 기술</title>
+  <style>
+    h2{padding: 20px 0px 5px 0px; }
+    h3{padding:5px 0px 10px 0px; font-size: 20px; margin-top: 0px;}
+    p{font-size: 16px;}
+    a{color: #333;}
+    a:hover{text-decoration: none;}
+    .box{background: #eee; padding: 20px; border-radius: 20px; margin-bottom: 20px;}
+    .b_list{margin-left: 20px;}
+    .b_list > li{list-style: disc;}
+    .p01 > span{
+      display: inline-block;
+      background: #fff;
+      padding: 15px;
+      margin-top: 10px;
+    }
+
+    /* pc화면 서식 */
+    @media screen and (min-width:1025px) {
+      .Mbox{background: #F5EEDC;}
+    }
+    
+    /* 2. tablet 화면 서식 */
+    @media screen and (min-width:768px) and (max-width:1024px) {
+      .Mbox{background: #ccc;}
+    }
+
+    /* 3. mobile 화면 서식 */
+    @media screen and (max-width:767px){
+      .Mbox{background:#C0D8C0;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="../index.html" title="메인페이지 바로가기" class="b_btn">
+      <img src="../images/icon_home.png" alt="icon_home">
+    </a>
+    <h2>18_반응형 웹 기술 3가지</h2>
+    <p><b>반응형 웹(response web)이란</b> 하나의 html문서를 제작하여 pc, tablet, moblie 화면에서 최적화된 콘텐츠를 보여주기 위한 기술</p>
+    <p>반응형 웹에서는 <b>1. 가변 크기 단위 2. 뷰포트 속성 3. 가로 해상도별 서식 적용을 위한 '미디어쿼리'속성</b>이 사용됨</p>
+    <br>
+    <!-- 1. 가변단위 -->
+    <div class="box">
+      <h3>1. 가변단위</h3>
+      <ul class="b_list">
+        <li><b>em</b>: 부모 요소의 font-size를 상속받아 크기가 결정되는 단위</li>
+        <li><b>rem</b>: root의 약자로 부모의 폰트크기를 상속받지 않고 최상위(html)요소에서 결정된 폰트크기를 기준으로 크기가 결정되는 단위 (16px = 1rem)</li>
+        <li><b>vh</b>: view height의 약자로 웹브라우저의 높이를 100으로 기준하여 높이 크기가 결정됨</li>
+        <li><b>vw</b>: view width의 약자로 웹브라우저의 가로를 100으로 기준하여 너비 크기가 결정됨</li>
+        <li><b>vmin</b>: 높이와 너비 중 짧은 쪽으로 100 기준하여 크기가 결정됨</li>
+        <li><b>vmax</b>: 높이와 너비 중 긴쪽으로 100 기준하여 크기가 결정됨</li>
+        <li><b>%</b>: 부모 요소를 기준으로 비율을 표현하는 단위(반응형에서 주로 많이 사용됨)</li>
+      </ul>
+    </div>
+    <!-- 2. 뷰포트 속성 -->
+    <div class="box">
+      <h3>2. 뷰포트 속성</h3>
+      <p><b>meta name="viewport" content="width=divice-width, initial-scale=1.0"</b></p>
+      <p>사용자의 디바이스 화면 크기에 맞추어 웹문서를 100%로 보여 줄 수 있는 속성으로 PC보다 태블릿 모바일 사용자를 위해 필요함</p>
+      <p>웹문서의 상단 head에 작성(charset 밑에 작성)</p>
+      <p>name="viewport" : pc/tablet/mobile 디바이스 화면에 맞게 설정함<br>
+        width=device-width : 콘텐츠 내용을 pc/tablet/moblie 화면 너비와 일치시킴<br>
+        initial-scale=1 : 디바이스 화면에 1:1 비율로 보이게 함 (숫자 2 입력시 화면이 2배로 커짐,  1=100% 2=200%)
+      </p>
+    </div>
+    <!-- 3. 미디어쿼리 속성 -->
+    <div class="box">
+      <h3>3. 미디어쿼리(mediaquery) 속성</h3>
+      <p>브라우저의 가로 너비(해상도)에 따라 또는 사용자의 디스플레이 가로 해상도에 따라 CSS를 적용하기위한 기술로서 반응형 웹페이지 제작시 필수 속성임</p>
+      <p>미디어쿼리 작성 시 각각의 디바이스별 해상도에 대해 이해 할 필요가 있는데, <br>
+        모바일 : 0~767 / 태블릿: 768~1024 / PC : 1280~1920까지 해상도 영역을 설정하며, 이것을 break point(중단점)이라고 함</p>
+        <p>break point(중단점) : 0 ~ 320 ~ 480 ~ 768 ~ 960 ~ 1000 ~ 1200</p><br>
+        <p class="p01">
+          <b>미디어 쿼리 작성법(띄어쓰기 주의)</b><br>
+        <span>
+          @media screen and (디바이스 가로해상도) {<br>
+            조건에 맞는 해상도일때 작용 할 CSS 서식;<br>
+          }
+        </span>
+        </p>
+    </div>
+    <div class="box Mbox">
+      <h3>4. 미디어 쿼리 실습하기</h3>
+      <pre>
+        /* pc화면 서식 */
+        @media screen and (min-width:1025px) {
+          .Mbox{background: #C0D8C0;}
+        }
+        
+        /* 2. tablet 화면 서식 */
+        @media screen and (min-width:768px) and (max-width:1024px) {
+          .Mbox{background: #F5EEDC;}
+        }
+    
+        /* 3. mobile 화면 서식 */
+        @media screen and (max-width:767px){
+          .Mbox{background:#ccc}
+        }
+      </pre>
+    </div>
+  </div>
+</body>
+</html>

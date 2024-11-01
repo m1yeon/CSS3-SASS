@@ -1,0 +1,137 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hi+Melody&family=Noto+Sans+KR:wght@100..900&display=swap');
+
+*{font-family: "Noto Sans KR", sans-serif;}
+
+$font_s01:12px;
+$title01:22px;
+$color0: #333;
+$color1: #03045E;
+$color2: #DD4A48;
+$color3: #91C483;
+$color4: #FFE162;
+$color5: #fff;
+$color6: #FFC0D3;
+//시간변수
+$time : 0.5s;
+
+h2{
+  font-size: $title01;
+  color: $color1;
+  // background-color: $color2;
+}
+
+@mixin h3txt{ //h3txt라는 mixin함수명에 적용할 서식을 미리 만듬
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 20px;
+  color: $color2;
+}
+.title01{
+  @include h3txt;
+}
+
+@mixin btn{
+  padding: 6px 18px;
+  color: $color5;
+  border: none;
+  border-radius: 35px;
+  box-shadow: 0px 0px 5px 0px rgba(3,3,3,.5);
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.btn1, .btn2{
+  @include btn;
+}
+
+.btn1{background: $color2;}
+.btn2{background: $color1;}
+
+pre{
+  display: inline-block; width: 500px;
+  padding-top:15px; padding-right: 25px;
+  background: #eee;}
+
+  @mixin txt_over{
+    width: 500px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .p01{
+    @include txt_over;
+  }
+
+  //실습3_ 버튼서식
+  //버튼 공통 서식(글자관련)
+  @mixin btnFont{
+    font-family: "Hi Melody", sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  //버튼 공통 서식(컬러, 여백 관련)
+  @mixin btnArea{
+    border: 1px solid #ccc;
+    padding: 6px 18px;
+    border-radius: 30px;
+  }
+
+  @mixin btn{
+    @include btnFont;
+    @include btnArea;
+  }
+
+  .btn3{@include btn; background: $color3; transition: $time;}
+  .btn4{@include btn; background: $color6; transition: $time;}
+  .btn3:hover, .btn4:hover{background: $color4; box-shadow: 0px 0px 5px 0px rgba(3,3,3,.5);}
+
+
+  //실습4_ 모바일 bar서식
+  .toggle_btn, .toggle{
+    width: 40px; height: 40px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    position: relative;
+  }
+
+  @mixin bar{
+    position: absolute;
+    display: inline-block;
+    width: 38px; height: 3px;
+    background: $color0;
+    transition: $time;
+    left: 1px
+  }
+  .bar{@include bar;}
+
+  .bar1, .t1{top: 5px;}
+  .bar2, .t2{top: 18.5px;}
+  .bar3, .t3{bottom: 5px;}
+
+  .rotate1{transform: rotate(45deg); top: 18.5px;}
+  .rotate2{display: none;}
+  .rotate3{transform: rotate(-45deg); bottom: 18.5px; }
+
+  #toggle:checked ~ .toggle_btn > .bar1{
+    transform: rotate(45deg); top: 18.5px;
+  }
+  #toggle:checked ~ .toggle_btn > .bar2{
+    display: none;
+  }
+  #toggle:checked ~ .toggle_btn > .bar3{
+    transform: rotate(-45deg); bottom: 18.5px;
+  }
+
+  // 실습5
+  @mixin sns{
+    font-size: 30px;
+    transition: $time;
+    padding: 10px;
+    background: $color0;
+    color: $color5;
+  }
+
+  .sns i{@include sns;}
+  .sns i:hover{background: $color2;}

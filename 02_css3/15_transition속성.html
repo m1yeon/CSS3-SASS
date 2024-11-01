@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/font_btn.css" type="text/css">
+  <title>CSS_15_transition 속성</title>
+  <style>
+    h2{padding: 20px 0px 5px 0px; }
+    h3{padding:5px 0px 10px 0px; font-size: 20px; margin-top: 0px;}
+    p{font-size: 16px;}
+    a{color: #333; text-decoration: none; transition: 0.4s;}
+    a:hover{text-decoration:underline;}
+    .box{background: #eee; padding: 20px; border-radius: 20px; margin-bottom: 20px;}
+
+    .box1{width: 200px; height: 100px; background: #FFC996; transition: 0.6s;}
+    .box1:hover{width: 100%; background: #ff8474;}
+
+    .box2 > ul{display: flex;}
+    .box2 > ul > li{width: 250px;  height: 250px; overflow: hidden; transition: 0.4s; position: relative;}
+    .box2 > ul > li img{height: 100%; transition: 0.4s; text-align: center; display: block;}
+    .box2 > ul > li:hover > img{height: 120%; margin-top: -10%; margin-left: -10%;}
+
+    .box2 > ul > li > span{
+      width: 100%; height: 50px; line-height: 50px;
+      background: rgba(0,0,0,.6);
+      color: #fff;
+      position: absolute; bottom: -50px;
+      z-index: 100;
+      transition: 0.6s;
+      text-align: center;
+    }
+    .box2 > ul > li:hover > span{
+      bottom: 0px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="../index.html" title="메인페이지 바로가기" class="b_btn">
+      <img src="../images/icon_home.png" alt="icon_home">
+    </a>
+    <h2>15_transition 속성</h2>
+    <p>transition(전환) 속성은 사용자가 선택한 html 요소에 마우스를 올리거나 클릭 했을 때 첫장면에서 마지막 장면으로 자연스럽게 넘어가는 효과를 구현하고자 할 때 사용함</p>
+    <p>모바일 토글 메뉴 클리깃 부드럽게 나오는 내비게이션, PC화면에서 메인 내비게이션 마우스 오버시 나오는 서브메뉴, 메인 화면의 좌/우 버튼 클릭시 슬라이드 되는 이미지 등 다양한 곳에 활용이 가능함</p>
+    <p><a href="https://ianlunn.github.io/Hover/" title="마우스 오버, transition 속성 예시">https://ianlunn.github.io/Hover/</a></p>
+    <br>
+    <div class="box">
+      <h3>1. 전환 속성을 사용하여 마우스 오버시 박스 크기 변경하기</h3>
+      <div class="box1"></div>
+    </div>
+    <div class="box box2">
+      <h3>2. 이미지 갤러리 구현하기</h3>
+      <ul>
+        <li><img src="./images/cat1.jpg" alt="고양이"><span>넴모넴모 고먐미</span></li>
+        <li><img src="./images/dog5.jpg" alt="강아지"><span>깜짝이야 강아지</span></li>
+        <li><img src="./images/hamster.jpg" alt="햄쮜"><span>으아앙 햄스터</span></li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

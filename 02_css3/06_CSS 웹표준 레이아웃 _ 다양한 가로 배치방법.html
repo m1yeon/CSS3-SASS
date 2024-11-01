@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS_06_CSS웹표준 레이아웃_다양한 가로 배치 방법</title>
+  <link rel="stylesheet" href="./css/font_btn.css" type="text/css">
+  <style>
+    h2,h3{padding: 20px 0px 5px 0px;}
+    h3{font-size: 18px;}
+    .box{
+      background: #eee;
+      padding: 0px 20px 20px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    p{padding-bottom: 10px;}
+
+    ul{
+      width: 600px;
+      padding: 10px; 
+      background: #C0D8C0;
+      /* border: 3px solid #c0d8c0; */
+      text-align: center;
+      justify-content:center;
+      border-radius: 10px;
+      }
+
+    ul > li{
+      list-style:none;
+      background: #FFF1CE;
+      border-radius: 10px;
+      /* border:2px solid #86C6F4; */
+      line-height: 40px;
+      text-align: center;
+      margin:0px 10px;
+      padding: 0px 10px;
+}
+
+      /* 1. display:inline */
+      .li01 > li{display: inline; padding: 8px 10px;}
+
+      /* 2. display:inline-block */
+      .li02 > li{display: inline-block;} /*inline 과 block 두 가지 속성을 가지기 때문에 가로 배치가 되면서도 가로, 세로 값을 가질 수 있음*/ 
+      /* inline 과  inline-block은 문자 취급되기 때문에 뛰어쓰기가 있으면 공백이 생김*/
+
+      /* 3. float:left _ float속성을 쓰면 부모의 높이에 문제가 생기는데 이걸 해결해주는게 가상요소 선택자*/
+      .li03::after{/*가상요소 선택자 : 선택한 요소의 뒤에 공간을 만든다*/
+        display: block;/*빈공간을 블럭요소로 만들고*/
+        clear: both; /*float속성을 해제하고*/
+        content: "";}/*빈공간의 내용을 여백으로 설정한다 */
+      
+        .li03 > li{float:left; 
+      transform: translateX(107px);}
+
+      h3{clear:left;}
+
+      /* 4. display:flex */
+      .li04{display: flex; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="../index.html" title="메인페이지 바로가기" class="b_btn">
+      <img src="../images/icon_home.png" alt="icon_home">
+    </a>
+    <h2>06_CSS웹표준 레이아웃_다양한 가로 배치 방법</h2>
+    <p>&#8226; 웹페이지의 콘텐츠를 배치하기 위한 방법으로는 <br>
+      1. table(수치값이 들어가는 내용을 만들 때 _ 로그인, 달력, 게시판, 일정표 등)<br>
+      2. float(이미지와 텍스트를 배열할 때 좋음)<br>
+      3. flex, grid(플렉스, 그리드는 레이아웃 짤 때) 방식이 있음</p>
+    <p>&#8226; 컨텐츠의 종류에 따라 다른 방법을 사용해 배치해야함</p>
+    <p>&#8226; 이 중에서 css로 콘텐츠를 가로방향으로 배치하는 방법에는<br> 요소의 성격인 block, inline, inline-block, flex, grid, none, table, table-row, table-cell 중<br> <b>display:inline, display:inline-block, float:left, display:flex</b>를 사용해 적용해 본다.</p>
+    
+    <div class="box">
+      <h3>1. display:inline;</h3>
+      <ul class="list li01">
+        <li>자식요소1</li><li>자식요소2</li><li>자식요소3</li><li>자식요소4</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>2. display: inline-block;</h3>
+      <ul class="list li02">
+        <li>자식요소1</li><li>자식요소2</li><li>자식요소3</li><li>자식요소4</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>3. float:left;</h3>
+      <ul class="list li03">
+        <li>자식요소1</li>
+        <li>자식요소2</li>
+        <li>자식요소3</li>
+        <li>자식요소4</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>4. display: flex;</h3>
+      <ul class="list li04">
+        <li>자식요소1</li>
+        <li>자식요소2</li>
+        <li>자식요소3</li>
+        <li>자식요소4</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/font_btn.css" type="text/css">
+  <!-- 폰트어썸 아이콘폰트 주소_가입 안하고 쓸스있는 ver -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+  <title>CSS_12_아이콘 폰트</title>
+  <style>
+    h2{padding: 20px 0px 5px 0px; }
+    h3{padding:5px 0px 10px 0px; font-size: 20px; margin-top: 0px;}
+    p{font-size: 16px;}
+    a{color: #333;}
+    a:hover{text-decoration: none;}
+    .box{background: #eee; padding: 20px; border-radius: 20px; margin-bottom: 20px;}
+    .a01{font-size: 16px; border-radius: 30px; border: 1px solid #333; padding: 5px 20px; transition: 0.4s;}
+    .a01:hover{background: #333; color: #fff;  }
+    .box1 > span, i{
+      font-size: 26px;
+    }
+    .material-icons{font-size: 36px;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="../index.html" title="메인페이지 바로가기" class="b_btn">
+      <img src="../images/icon_home.png" alt="icon_home">
+    </a>
+    <h2>12_아이콘 폰트</h2>
+    <p>웹폰트를 사용하여 특수문자(한글자음 + 한자)를 삽입하듯이 다양한 아이콘을 삽입할 수 있는 기술을 말하며, 아이콘 폰트를 제공하는 업체로는 폰트어썸, 부트스트랩, 구글, XEICON등이 있음</p>
+    <p>아이콘 폰트는 기존의 아이콘을 이미지로 삽입하는 sprite image 방식의 단점을 보완한 아이콘 삽입 방법으로서 다양한 디바이스에서 활용이 가능하고 CSS를 사용하여 서식을 글자처럼 꾸밀 수 있는 장점이 있음</p>
+    <p>단점은 웹폰트를 연결하여 사용해야 하기 떄문에 내부에 폰트가 저장되어야 하거나 우베서버 주소를 통해 연결해야 함</p>
+
+    <div class="box box1">
+      <h3>1. fontawesome을 사용하여 아이콘 삽입</h3>
+      <a href="https://fontawesome.com" class="a01">폰트어썸</a>
+      <a href="https://cdnjs.com/libraries/font-awesome" class="a01">폰트어썸CDN</a><br><br>
+      <p>작성법 : 폰트어썸 CDN 주소를 삽입하고 span, i태그를 작성한 뒤 필요한 아이콘의 클래스명을 찾아 작성</p>
+      <i class="fas fa-dog"></i>
+      <span class="fas fa-tree"></span>
+      <i class="fab fa-twitter sns"></i>
+      <i class="fab fa-facebook sns"></i>
+      <i class="fas fa-bars"></i>
+      <i class="fas fa-angle-left"></i>
+      <i class="fas fa-angle-right"></i>
+      <!-- 알람시계 --><i class="fa-regular fa-clock"></i>
+      <!--배터리--><i class="fas fa-battery-full"></i>
+      <!--장바구니--><i class="fa-solid fa-bag-shopping"></i>
+      <!--유튜브--><i class="fab fa-youtube"></i>
+      <!--닫기버튼--><i class="fa-solid fa-xmark icon01"></i>
+      <!--찜하기--><i class="fa-solid fa-heart"></i>
+      <!--위치--><i class="fa-solid fa-location-dot"></i>
+      <!--검색--><i class="fa-solid fa-magnifying-glass icon01"></i>
+      <!--홈--><i class="fa-solid fa-house"></i>
+      <br><br>
+      <h3>2. bootstrap을 사용하여 아이콘 삽입하기</h3>
+      <span class="glyphicon glyphicon-cloud"></span>
+      <i class="glyphicon glyphicon-home"></i>
+      <br><br>
+      <h3>3. google font를 사용하여 아이콘 삽입하기</h3>
+      <p>구글폰트 링크주소를 삽입한 후 > i,span 클래스명은 무조건 'material_icon'라고 작성> 태그 안에 이름 작성</p>
+      <i class="material-icons">add_alarm</i>
+      <i class="material-icons">menu</i>
+      <i class="material-icons">home</i>
+      <i class="material-icons icon01">chevron_left</i>
+      <i class="material-icons icon01">chevron_right</i>
+      <i class="material-icons">local_grocery_store</i>
+      <i class="material-icons">account_circle</i>	
+    </div>
+  </div>
+</body>
+</html>

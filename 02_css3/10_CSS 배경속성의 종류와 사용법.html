@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/font_btn.css" type="text/css">
+  <title>CSS_10_CSS 배경속성의 종류와 사용법</title>
+  <style>
+    h2{padding: 20px 0px 5px 0px;}
+    h3{padding:5px 0px; font-size: 18px;}
+    .box{
+      background: #eee;
+      padding: 20px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    a{text-decoration: none;}
+
+    .list01{padding-left: 25px;}
+    .list01 > li{list-style: disc; font-size: 15px;}
+    .p01{background-color: rgba(255, 100, 100, .9);}
+    .p02{background-color: rgba(255, 100, 100, .6);}
+    .p03{background-color: rgba(255, 100, 100, .3);}
+    .p04{background: rgb(255, 100, 100); opacity: 0.6;}
+
+    .gradient_list{display: flex;}
+    .gradient_list > li{display: inline-block; width: 200px; height: 200px; line-height: 200px; text-align: center; margin-right: 10px; border-radius: 15px;}
+    .gra1{background: linear-gradient(#139487, #fff1ce);}
+    .gra2{background: radial-gradient(#139487, #fff1ce);}
+    .gra3{background: linear-gradient(to right, #139487 1%,#fff1ce 50%,#139487 100%)}
+
+    /* 공통서식 */
+    .bg_wrap{display: flex; flex-wrap: wrap; gap: 20px;}
+    .bg{
+      width: 200px; height: 200px;
+      border: 2px solid #333;
+      background-image: url(./images/1117_back.jpg);
+      text-align: center;
+      line-height: 200px;
+      font-weight: bold;
+      border-radius: 10px;
+    }
+
+    /* 4. 배경이미지 반복설정 */
+    /* .bg02{background-repeat: repeat-y;} */
+    /* .bg02{background-repeat: repeat-x;} */
+    .bg02{background-repeat: no-repeat;}
+
+    /* 5. 배경이미지 크기지정 */
+    .bg03{
+      background-repeat: no-repeat;
+      background-size: 50%; /*width , height 설정, 단위 px, % 가능*/
+    }
+
+    /* 6. 배경이미지 위치지정 */
+    .bg04{
+      background-repeat: no-repeat;
+      background-position: 120px 20px;
+    }
+    /* 7. 배경이미지 기준위치 설정 */
+    .bg05{
+      /*content-box : 이미지가 테두리 선과 겹치지 않고 안에 배치
+        borer-box : 이미지가 테두리 선과 겹치면서 전체 크기안에 배치*/
+      background-origin:border-box;
+    }
+
+    /* 8. 배경이미지 고정하기 */
+    .bg06{
+      background-image:url(./images/1117_back.jpeg);
+      background-attachment:fixed;
+      background-size: 150%;
+      color: #fff;
+    }
+    /* 9. 멀티 배경이미지 삽입 */
+    .bg07{
+      line-height: 60px;
+      width: 420px; height: 200px;
+      border: 2px solid #333;
+      background: url(./images/1117_back.jpg) no-repeat left center, url(./images/1117_menu.gif) no-repeat right center;}
+
+    /* 10. 실습예제  */
+    .naver{
+      text-indent: -9999px; display: inline-block;
+      width: 48px; height: 48px;
+      border: 1px solid #333;
+      background-image: url(./images/1117/sp_main.2b96eea2.png);
+      background-position:-250px -712px;}
+
+    .hover_act{
+      display: inline-block; width: 100px; height: 40px;
+      background-image: url(./images/1117_menu.gif);
+      text-indent: -9999px;
+      transition: 0.6s;
+    }
+
+    .a01{margin: 0px 20px;}
+    .a01:hover{background-position: 0px -40px;}
+    .a02{background-position: -100px 0px;}
+    .a02:hover{background-position: -100px -40px;}
+
+    /* 실습11 */
+    .e11 header{width: 210px; margin: 20px; background: #fff; padding-bottom: 10px;}
+    .e11 h1{width: 210px; height: 44px; }
+    .e11 h1 > a{
+      display: block; 
+      text-indent: -9999px;
+      background-image: url(./images/1117/common.png);
+      width:127px; height: 44px; 
+      background-position: -200px -4px;
+      margin: 0px auto;
+    }
+    .e11 input{display: none;}
+    .e11 #tog:checked+#main_nav{display: block;}
+    .e11 .toggle{
+      display:block; width: 210px; height: 44px;
+      background-image: url(./images/1117/common.png);
+      background-position: 5px -240px;
+      text-indent: -9999px;
+    }
+    .e11  #main_nav{display:none}
+    .e11 ul > li > a{
+      display: block; width: 210px; height: 44px;
+      background-image: url(./images/1117/main.png);
+      text-indent: -9999px;
+      background-color: #3c78ce;
+    }
+    .e11 ul > li:first-child > a{background-position:0px 0px;}
+    .e11 ul > li:nth-child(2) >a{background-position:0 -42px;}
+    .e11 ul > li:nth-child(3) >a{background-position:0 -84px;;}
+    .e11 ul > li:nth-child(4) >a{background-position:0 -130px;}
+    .e11 ul > li:nth-child(5) >a{background-position:0 -175px;}
+    .e11 ul > li:nth-child(6) >a{background-position:0 -219px;}
+    .e11 ul > li:nth-child(7) >a{background-position:0 -265px;}
+    .e11 ul > li:nth-child(8) >a{background-position:0 -306px;}
+    .e11 ul > li:last-child >a{background-position:0 -353px ;}
+    .e11 ul> li > a:hover{background-color: #164b99;}
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="../index.html" title="메인페이지 바로가기" class="b_btn">
+      <img src="../images/icon_home.png" alt="icon_home">
+    </a>
+    <h2>10_CSS 배경속성의 종류와 사용법</h2>
+    <p>background 속성은 사용자가 선택한 요소의 배경색, 배경이미지를 삽입하기 위한 속성으로,</p>
+    <ul class="list01">
+      <li><b>background-color</b> : 배경색(단일색, 그라디언트 가능)</li>
+      <li><b>background-image</b> : 배경 이미지 삽입(url)</li>
+      <li><b>background-repeat</b> : 배경 반복 설정</li>
+      <li><b>background-size</b> : 배경 이미지 크기 설정(px, %, cover, contain)</li>
+      <li><b>background-position</b> : 배경 이미지 위치 지정(x, y)</li>
+      <li><b>background-origin</b> : 배경 이미지 기준 위치 지정</li>
+      <li><b>background-attachment</b> : 배경 이미지 고정하기</li>
+      <li><b>멀티백그라운드</b> : CSS3에서 추가된 속성으로  여러 이미지를 한꺼번에 배경으로 삽입 가능</li>
+    </ul>
+    <br>
+    <!-- 1.  -->
+    <div class="box">
+      <h3>1. 배경색 삽입(background-color)</h3>
+      <p>배경색을 삽입하기 위한 색상값의 종류로는 색상명, hex콛(#000), rgb, rgba, hsl, hsla가 있음</p>
+      <p>투명도 조절 ) a는 alpha의 약자로 %를 소수점으로 환산하여 입력함</p>
+      <p>opacity와 alpha의 차이점 ) opacitiy는 글자와 배경 모두 투명하게 하지만, alpha는 배만 투명도가 적용됨</p>
+      <p class="p01">배경색과 투명도 같이 적용하기 background-color: rgba(255, 100, 100, .9)</p>
+      <p class="p02">배경색과 투명도 같이 적용하기 background-color: rgba(255, 100, 100, .6)</p>
+      <p class="p03">배경색과 투명도 같이 적용하기 background-color: rgba(255, 100, 100, .3)</p>
+      <p class="p04">배경색과 투명도 같이 적용하기 opacity: 0.6</p>
+      </div>
+      <!-- 2. 그라디언 -->
+      <div class="box">
+        <h3>2. 그라디언트(gradient)</h3>
+        <p>그라디언트란 <b>2가지 이상의 색상이 점진적으로 변하는 색상</b>을 말하며, 웹에서도 그라데이션 색상을 표현 할 수 있음. 선형(linear)과 원형(radial) 2가지 종류가 있음</p>
+        <p>https://www.colorzilla.com</p>
+        <ul class="gradient_list">
+          <li class="gra1">선형 그라디언트</li>
+          <li class="gra2">원형 그라디언트</li>
+          <li class="gra3">사용자 그라디언트</li>
+        </ul>
+      </div>
+
+      <!--  -->
+      <div class="box bg_wrap">
+        <div class="bg">배경이미지 삽입</div>
+        <div class="bg bg02">배경이미지 반복설정</div>
+        <div class="bg bg03">배경이미지 크기 지정</div>
+        <div class="bg bg04">배경이미지 위치지정</div>
+        <div class="bg bg05">배경이미지 기준 위치 설정(origin)</div>
+        <div class="bg bg06">배경이미지 고정하기</div>
+        <div class="bg bg07">멀티 배경이미지 삽입</div>
+      </div>
+      <!--  -->
+      <div class="box pt_wrap">
+        <h3>10. 실습예제</h3>
+        <p>배경속성의 위치값을 사용하여 마우스 오버시 이미지 바꾸기</p><br>
+        <!-- <a href="index.html" title="메인페이지 바로가기" class="naver">네이버</a> -->
+        <a href="#" title="호스팅 바로가기" class="hover_act a01">호스팅</a>
+        <a href="#" title="고객센터 바로가기" class="hover_act a02">고객센터</a>
+      </div>
+      <div class="box e11">
+        <h3>11. 실습예제</h3>
+        <p>스프라이트 이미지를 활용한 지마켓 내비게이션</p>
+        <header>
+          <h1><a href="index.html" title="메인페이지 바로가기">지마켓 로고</a></h1>
+          <label class="toggle" for="tog">전체메뉴</label>
+          <input type="checkbox" id="tog">
+          <nav id="main_nav">
+            <ul>
+              <li><a href="#" title="브랜드패션">브랜드패션</a></li>
+              <li><a href="#" title="패션의류">패션의류</a></li>
+              <li><a href="#" title="유아동">유아동</a></li>
+              <li><a href="#" title="식품">식품&middot;생필품</a></li>
+              <li><a href="#" title="홈데코">홈데코</a></li>
+              <li><a href="#" title="컴퓨터">컴퓨터</a></li>
+              <li><a href="#" title="스포츠">스포츠&middot;건강</a></li>
+              <li><a href="#" title="자동차">자동차&middot;공구</a></li>
+              <li><a href="#" title="여행">여행&middot;도서&middot;티켓&middot;e쿠폰</a></li>
+            </ul>
+          </nav>
+        </header>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

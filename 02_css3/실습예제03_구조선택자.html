@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>실습예제03_구조선택자를 활용한 공지사항 게시판 콘텐츠 구현</title>
+  <style>
+    /* 여백 초기화 */
+    *{margin: 0px; padding: 0px;}
+    caption{display:none;}
+    h2{line-height: 50px;}
+    body{
+      font-family: 'g마켓sans',arial, snas-serif;
+      font-size: 12px;
+      color: #333;
+    }
+
+    table{
+      width: 700px;
+      margin: 0px auto; /*브라우저의 중앙에 배치*/
+      border-collapse: collapse; /*셀과 셀사이 여백*/
+    }
+
+
+      /* 셀너비 설정하기 */
+      table > thead > tr > th:first-child{width: 50px;}
+      table > thead > tr > th:nth-child(2){width: 450px;}
+      table > thead > tr > th:nth-child(3){width: 100px;}
+      table > thead > tr > th:nth-child(4){width: 50px; }
+      table > thead > tr > th:last-child{width: 50px;}
+
+      /* tbody에 선스타일 적용하기*/
+      table > tbody > tr{line-height: 26px; border-bottom: 1.7px dashed #999;}
+
+    /*셀 디자인 넣기*/
+      table > tbody > tr > td:first-child{text-align:center; color: #999;}
+      table > tbody > tr a{text-decoration: none; color: #255e7c;}
+      table > tbody > tr > td:nth-child(3){font-weight: bold; text-align: center;}
+      table > tbody > tr > td:nth-child(4){color: #999; font-size: 11px; text-align: center;}
+      table > tbody > tr > td:last-child{color: #999; font-size: 11px; text-align:center;}
+
+
+      /*th셀에 선스타일 적용하기 */
+      table > thead > tr > th{
+        text-transform: uppercase; /*소문자를 대문자로 바꿔주는 속성*/
+        background-color: #ea98c7;
+        color:#fff;
+        border-top: 3px solid #f56fb7;
+        border-bottom: 2px solid #f56fb7;
+        line-height: 34px;}
+
+        /*tfoot_폼태그 스타일 적용하기*/
+        tfoot > tr {text-align: center;}
+
+        tfoot > tr > td{padding-top: 20px;}
+
+        tfoot .btn01{color: #fff; background-color: #f56fb7; border: 1px solid #af256f; border-radius: 3px; padding: 1px 5px; font-size: 12px; font-weight: bold;}
+
+
+
+  </style>
+</head>
+<body>
+  <h2>실습예제_구조선택자를 활용한 공지사항 게시판 콘텐츠 구현하기</h2>
+
+  <form name="검색" method="post" action="a.php">
+    <table>
+      <caption>공지사항</caption>
+      <thead>
+      <tr>
+        <th>no.</th><th>subject</th><th>writer</th><th>date</th><th>hit</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr><td>7</td><td><a href="#" title="7">[필독]핑크 하우스 회원 혜택</a></td><td>관리자</td><td>05-29</td><td>3</td></tr>
+        <tr><td>6</td><td><a href="#" title="6">[안내]생일 축하 쿠폰 및 적립금 안내</a></td><td>관리자</td><td>05-29</td><td>2</td></tr>
+        <tr><td>5</td><td><a href="#" title="5">[안내]핑크 하우스 무료 배송 안내</a></td><td>관리자</td><td>05-29</td><td>1</td></tr>
+        <tr><td>4</td><td><a href="#" title="4">[필독]배송사 및 처리 확인</a></td><td>관리자</td><td>05-29</td><td>1</td></tr>
+        <tr><td>3</td><td><a href="#" title="3">[필독]카드 무이자 할부 행사 안내</a></td><td>관리자</td><td>05-29</td><td>1</td></tr>
+        <tr><td>2</td><td><a href="#" title="2">[안내]핑크 하우스 오프라인 매장 안내</a></td><td>관리자</td><td>05-29</td><td>1</td></tr>
+        <tr><td>1</td><td><a href="#" title="1">[필독]핑크 하우스 등급제 안내</a></td><td>관리자</td><td>05-29</td><td>2</td></tr>
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <td colspan="5">
+            <select name="검색옵션" id="option">
+              <option value="">제목</option>
+              <option value="">제목+내용</option>
+              <option value="">작성자</option>
+              <option value="">내용</option>
+            </select>
+            <input type="text">
+            <input type="submit" value="검색" class="btn01"> &nbsp;
+            <input type="radio" name="a" id="r01"><label for="r01">and</label> &nbsp;
+            <input type="radio" name="a" id="r02"><label for="r02">or</label></td>
+          </tr>
+      </tfoot>
+    </table>
+
+  </form>
+</body>
+</html>

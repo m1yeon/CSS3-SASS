@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/font_btn.css" type="text/css">
+  <title>CSS_19_검색엔진최적화(SEO)</title>
+  <style>
+    h2{padding: 20px 0px 5px 0px; }
+    h3{padding:5px 0px 10px 0px; font-size: 20px; margin-top: 0px;}
+    p{font-size: 16px;}
+    a{color: #333;}
+    a:hover{text-decoration: none;}
+    .box{background: #eee; padding: 20px; border-radius: 20px; margin-bottom: 20px;}
+    .box > h4{background: #333; color: #fff; display: inline-block; padding: 5px 15px; border-radius: 30px; margin-top: 15px;}
+    ul{margin-left: 20px; padding-top: 10px;}
+    ul > li{list-style: disc;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="../index.html" title="메인페이지 바로가기" class="b_btn">
+      <img src="../images/icon_home.png" alt="icon_home">
+    </a>
+    <h2>19_검색 엔진 최적화</h2>
+    <p>메타 태그(meta tag)는 웹 서버와 웹 브라우저간에 상호 교환되는 정보를 정의하는데 사용하며,<br> 웹페이지가 담고 있는 컨텐츠가 아닌 웹페이지 자체의 정보를 명시하기 위한 목적으로 사용되는 HTML 태그를 의미함</p>
+    <p>이러한 웹페이지의 메타 정보는 주로 HTML의 meta요소를 통해 마크업을 하며,<br> HTML 문서 내에서 head 요소 아래 배치되므로 일반 유저가 보게되는 웹페이지의 디자인에는 전혀 영향을 미치지 않고,<br> 문서가 어떤 내용을 담고 있고, 문서의 키워드는 무엇이며, 누가 만들었는지 등의 문서 자체의 특성을 담고 있음</p>
+    <p>반면에 검색엔진(네이버, 구글, 다음, 네이트...)과 같은 기계들이 웹페이지를 읽어야 할 때는<br> 메타 태그의 내용들이 해당 서비스에서 어떻게 표시될지를 결정하는 매우 핵심적인 요소가 됩</p>
+    <br>
+    <div class="box">
+      <h3>1. SEO태그 _ title</h3>
+      <p>검색엔진은 주기적으로 웹사이트를 방문하여 각 웹페이지가 어떤 콘텐츠를 제공하고 있는지를 파악하고, 수집하여 데이터베이스에 저장을 하는데, 점점 지능적(AI)로 진화하고 있음<br>또한 어느 정도까지는 스스로 웹페이지의 구조와 내용을 파악 할 수 있음<br>그럼에도 불구하고 메타 태그를 통해 웹페이지에 대한 정보를 좀 더 주도적으로 명시한다면 SEO(검색엔진 최적화)측면에서 유리함</p>
+      <p><span class="t01">예</span>메인 페이지의 경우 > 스타벅스에 오신 것을 환영합니다.</p>
+      <p><span class="t01">예</span>로그인의 겨우 > 로그인 페이지</p>
+      <p><span class="t01">예</span>서브페이지의 경우 > 스타벅스 신메뉴</p>
+    </div>
+    <div class="box">
+      <h3>2. SEO태그 _ meta</h3>
+      <p>웹사이트의 제목만 예외적으로 title 요소를 사용하고, 그 밖에 다른 웹페이지의 메타 정보는 meta 요소를 사용하여 표현함</p>
+      <p>meta 요소를 사용 할 때는 name속성을 통해 메타 정보의 이름을 명시하고 content속성을 통해 메타 정보의 이름과 내용을 명시함</p>
+
+      <h4>meta 태그의 3가지 속성</h4>
+      <p><b>1. http-equiv="항목명"</b> : 웹 브라우저가 서버에 명령을 내리는 속성으로 nae 속성을 대신하여 사용될 수 있으며, HTML 문서가 응단 헤더와 함꼐 웹 서버로부터 웹 브라우저에 전송되었을 때에만 의미</p>
+      <p><b>2. content="정보값"</b> : meta 정보의 내용을 지정함</p>
+      <p><b>3. name ="정보이름"</b> : 몇 개의 meta 정보의 이름을 지정 할 수 있으며 지정하지 않으면 http-equiv와 같은 기능을 함</p>
+
+      <h4>mata 태그의 종류</h4>
+      <ul>
+        <li>meta name="keywords" content="여성의류, 웹표준" : 검색엔진에 의해 검색되는 단어를 지정</li>
+        <li>meta name ="description" content="신상의류, 자신의 스타일에 맞는 의상 추천" : 검색 결과에 표시되는 문자를 지정</li>
+        <li>meta name="Robots" content="noindex, nofollow" : 검색 로봇 제어</li>
+        <li>mata http-equiv='Content-Type' content='text/html; charset=utf-8' : 현재 문서가 어떤 문자코드를 사용하고 있는지 문자코드의 종류를 설명</li>
+        <li>meta name="Date" content="2023-12-04T10:45:30" : 현재 문서의 작성 날싸(제작일)</li>
+        <li>meta http-equiv="X-UA-Compatible" content="IE=edge" : ms사 브라우저 호환성을 지정함 (근데 요즘은 크롬을 많이 쓰기 때문에 이 내용을 안씀)</li>
+        <li>meta http-equix="Subject" content ="웹 표준을 위한 사이트" : 홈페이지 주제</li>
+        <li>meta http-equiv="Title" content="웹 표준" : 홈페이지 제목</li>
+        <li>meta http-equiv="Other Agent" content="name" : 책임자</li>
+        <li>meta http-equiv="Author" content="name" : 작성자</li>
+        <li>meta http-equiv="Distribution" content="name" : 배포자</li>
+        <li>meta http-equiv="Build" content="date" : 제작일</li>
+        <li>meta http-equiv="Copyright" content="Copyright@dothome" : 저작권</li>
+        <li>meta http-equiv="Last-Modified" content=:Mon, 20 Jul 2016 19:30:30" : 최종수정일</li>
+        <li>meta http-equiv="Refresh" content="60" : 지정한 시간마다 새로고침</li>
+        <li>meta http-equiv="Page-Enter" content="revealtrans(Duration=1, Transition=12)" : 페이지 장면전환 효과</li>
+      </ul>
+      <ul>
+        <li>None = 'noindex, nofollow'</li>
+        <li>Index : 그 페이지를 수집 대상으로 합니다.</li>
+        <li>Follow : 그 페이지를 포함해 링크가 걸린 곳을 수집 대상으로 합니다.</li>
+        <li>Noindex : 그 페이지를 수집대상에서 제외</li>
+        <li>Nofollow : 그 페이지를 포함하여 링크가 걸린 곳을 수집 대상으로 하지 않습니다.</li>
+      </ul>
+    </div>
+    <!--  -->
+    <div class="box">
+      <h3>3. SEO태그 _ Open Graph</h3>
+      <p>요즘에는 SNS와 메신저를 토앻 웹페이지의 링크를 공유하는 일이 잦아지면서 메타 태그가 좀 더 넓은 분야에서 활용되고 있음.<br>대표적인 사례로 페이스북이나 카카오톡, 슬랙(slack)과 같은 앱에서 웹페이지의 링크만 입력하더라도 해당 웹페이지의 콘텐츠 미리보기를 카드 형태로 나타내는 것이 있음</p>
+      <p>일반적으로 이러한 서비스들은 Open Graph 프로토콜이라고 불리는 업게 표준을 따라서 웹페이지 콘텐츠 미리보기를 지원하고 있음<br>따라서 우리도 Open Graph 프로토콜에서 정의하고 있는 메타태그를 적절히 사용하면 콘텐츠 미리보기에 원하는 내용을 표시되도록 어느 정도 제어를 할 수 있음</p>
+      <p>Open Graph의 태그 이름은 og: 로 시작</p>
+    </div>
+    <div class="box">
+      <h3>4. robots.txt</h3>
+      <p>https://cafe.naver.com/uiuxweb</p>
+      <p>robots.txt는 웹사이트에서 크롤링하며 정보를 수집하는 검색엔진 크롤러(또는 검색 로봇)가 액세스 하거나 정보 수집을 해도 되는 페이지가 무엇인지, 해서는 안되는 페이지가 무엇인지 알려주는 역할을 하는 .txt(텍스트)파일임</p>
+      <p>robots.txt 파일은 검색엔진 크롤러가 웹사이트에 접속하여 정보 수집을 하며 보내는 요청(request)으로 인해 사이트가 과부화되는 것을 바잊하기 위해 사용됨</p>
+      <p></p>
+
+    </div>
+  </div>
+</body>
+</html>

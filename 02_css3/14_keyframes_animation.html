@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/font_btn.css" type="text/css">
+  <title>CSS_14_keyframes 애니메이션</title>
+  <style>
+    h2{padding: 20px 0px 5px 0px; }
+    h3{padding:5px 0px 10px 0px; font-size: 20px; margin-top: 0px;}
+    p{font-size: 16px;}
+    a{color: #333;}
+    a:hover{text-decoration: none;}
+    .box{background: #eee; padding: 20px; border-radius: 20px; margin-bottom: 20px;}
+    .box ul{margin-left: 20px;}
+    .box li{list-style: disc; font-size: 15px;}
+
+    .inner{display: flex; padding-bottom: 50px;}
+    .inner_b{width: 25%; text-align: center;}
+    .inner_b > h3{font-size: 18px; margin-bottom: 50px;}
+
+    .box1, .box2{
+      width: 100px; height: 100px; background: #ccc; margin: 0 auto;}
+    .box1{animation: ani1 6s infinite;}
+    @keyframes ani1 {
+      0% {background: #DD4A48;}
+      25% {background: #FF8474;}
+      50% {background: #FFE162;}
+      75% {background: #C0D8C0;}
+      100% {background: #90E0EF;}
+    }
+
+    .box2{animation: ani2 6s infinite;}
+    @keyframes ani2 {
+      0%{transform: rotate(0);}
+      100% {transform: rotate(360deg);}
+    }
+
+    .scr_btn{
+      padding: 0px; margin: 0px auto;
+      display: inline-block;
+      border: 1px solid #333;
+      font-size: 14px;
+      width: 70px;
+      height: 70px;
+      text-align: center;
+      line-height: 70px;
+      border-radius: 50%;
+      animation: ani3 2.5s infinite;
+      /* transform: translateY(-20px); */
+    }
+
+    @keyframes ani3 {
+      0%{transform: translateY(-10px);}
+      50%{transform: translateY(20px);}
+      100%{transform: translateY(-10px);}
+    }
+
+    .circle{
+      position: relative;
+    }
+    .circle > div{
+      position: absolute;
+      /* left: 50%;
+      top: 70%;
+      transform: translate(-50%, -50%); */
+    }
+    .red_c{
+      width: 140px; height: 140px;
+      border-radius: 50%;
+      border: 3px dotted #DD4A48;
+      animation: circle1 infinite 20s linear;
+      left: 50px; top: 70px;
+      box-sizing: border-box;
+    }
+    .bk_c{
+      border: 1px solid #777;
+      width: 100px; height: 100px;
+      animation: circle2 infinite 15s linear;
+      left: 70px; top: 90px;
+      box-sizing: border-box;
+    }
+
+    .bk_c > div{
+      position: absolute;
+      width: 50px; height: 50px;
+      background-size: cover;
+      border-radius: 50%;
+      overflow: hidden;
+      animation: circle1 infinite 15s linear;
+    }
+    .bk_c > .b1{
+      left: -25px; top: -25px;
+      background-image: url(./images/hamster.jpg);
+    }
+    .bk_c > .b2{
+      right: -25px; top: -25px;
+      background-image: url(./images/dog2.jpg);
+    }
+    .bk_c > .b3{
+      left: -25px; bottom: -25px;
+      background-image: url(./images/dog3.jpg);
+    }
+    .bk_c > .b4{
+      right: -25px; bottom: -25px;
+      background-image: url(./images/dog4.jpg);
+    }
+
+    @keyframes circle1 {
+      0% {transform: rotate(0deg);}
+      100% {transform: rotate(360deg);}
+    }
+
+    @keyframes circle2 {
+      0%{transform: rotate(0deg);}
+      100%{transform: rotate(-360deg);}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="../index.html" title="메인페이지 바로가기" class="b_btn">
+      <img src="../images/icon_home.png" alt="icon_home">
+    </a>
+    <h2>14_keyframes 애니메이션</h2>
+    <p>CSS에서 움직이는 동작을 표현하기 위해 transition, keyframes 속성을 사용</p>
+    <p>transition 속성은 마우스 오버에의한 동작으로 애니메이션을 구현, keyframes 속성은 마우스 동작에 의하지 않고, 자동으로 움직이도록 할 수 있다는 차이점이 있음</p>
+    <br>
+    <div class="box">
+      <h3>작성법</h3>
+      <p>@keyframes 애니메이션 이름 지정{ <br>
+        0% {실행 할 서식}  = form{실행 할 서식} <br>
+        100% {실행 할 서식} = to{실행 할 서식} <br>
+      }</p>
+      <br>
+      <ul>
+        <li><b>animation-name</b>: 적용 할 애니메이션 이름 지정</li>
+        <li><b>animation-duration</b> : 애니메이션 시간 설정</li>
+        <li><b>animation-iteration-count</b> : 애니메이션 반복 횟수</li>
+        <li><b>animation-delay</b> : 애니메이션 지연 시간 설정</li>
+      </ul>
+    </div>
+
+    <div class="box inner">
+      <div class="inner_b">
+        <h3>1. 컬러 변경되는 박스</h3>
+        <div class="box1"></div>
+      </div>
+      <div class="inner_b">
+        <h3>2. 360도 회전하는 박스</h3>
+        <div class="box2"></div>
+      </div>
+    <div class="inner_b">
+      <h3>3. scroll버튼 애니메이션</h3>
+      <span class="scr_btn">SCROLL</span>
+    </div>
+    <div class="inner_b circle">
+      <h3>4. 애니메이션 중복 적용하기</h3>
+      <div class="red_c"></div>
+      <div class="bk_c">
+        <div class="bk_inner b1"></div>
+        <div class="bk_inner b2"></div>
+        <div class="bk_inner b3"></div>
+        <div class="bk_inner b4"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

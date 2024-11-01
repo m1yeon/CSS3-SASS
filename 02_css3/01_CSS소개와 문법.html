@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS_01_CSS소개와 문법</title>
+  <link rel="stylesheet" href="./css/font_btn.css" type="text/css">
+  <style>
+    h2,h3{padding: 20px 0px 5px 0px;}
+    h3{font-size: 18px;}
+    .p01{font-size: 14px; color: #666;}
+    .p02{background: #ccc; padding: 0px 10px; font-weight: bold;}
+
+    .box{
+      background: #eee;
+      padding: 0px 20px 20px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    .link01{
+      background: #333;
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    .box_s p{
+      font-size: 15px;
+    }
+
+    .box_s img{width: 400px; padding: 10px;}
+  </style>
+  <style>
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="../index.html" title="메인페이지 바로가기" class="b_btn">
+      <img src="../images/icon_home.png" alt="icon_home">
+    </a>
+
+    <h2>01_CSS소개와 문법</h2>
+    <p><b>CSS는 Cascading Style Sheets의 약자</b>로 <b>html문서의 내용에 서식을 적용하기 위한 언어</b>로 <b>미국의 '에릭메이어'</b>라는 개발자에 의해서 개발된 언어이다.</p>
+    <p>현재까지 css level3까지 나온 상태로서 웹문서의 레이아웃, 그림자효과, 애니메이션 등의 동적인 콘텐츠도 개발이 가능한 상태이다.</p>
+    <p>css의 특징은 웹문서 제작 시 다양한 사용자 환경(pc, tablet, mobile, 크롬, 엣지, 사파리 등)에서 동일한 내용을 볼 수 있게 표현해주는 언어로서 웹표준 제작시 필수 언어이다.</p>
+    <br>
+    <div class="box">
+      <h3>1. CSS 문법</h3>
+      <p><b>작성법 : 선택자{속성:값;}</b></p>
+      <p><b>선택자(selector)</b> : 서식을 적용하기 위한 하나의 방법(target)을 말하며 대략50가지가 있음</b></p>
+      <p><b>속성(property)</b> : 속성은 서식의 종류로 500개 정도의 서식이 존재한다.&nbsp;
+      <a href="./00_CSS 속성의 종류.html" class="link01">CSS속성의 종류</a>
+      </p>
+      <p><b>값(value)</b> : 속성을 선택하면 반드시 설정하는 내용을 말한다.</b></p>
+    </div>
+    <div class="box">
+      <h3>2. CSS 특징</h3>
+      <p>CSS언어는 <br>
+      1) <b>모든 문서에 동일한 서식</b>을 만들 수 있으며,<br>
+      2) 어느 환경에서나 <b>사용자가 의도한 디자인을 구현</b>할 수 있음<br>
+      3) 또한 <b>편리한 유지/보수</b>의 장점이 있음
+      </p>
+      <p>CSS 주석작성 /*주석내용*/</p>
+    </div>
+    <div class="box">
+      <h3>3. CSS 작성시 위치 지정 방법</h3>
+      <p><b>내부스타일</b> : 현재 삭성하고 있는 html 문서에서만 적용이 가능한 스타일로서 head영역안에 style을 선언하여 작성</p>
+      <p><b>외부스타일</b> : 별도의 CSS문서를 작성하고, html문서의 head영역 안에 link href='css문서경로'로 연결하여 서식을 적용</p>
+      <p><b>인라인스타일</b> : html문서 안에 있는 태그에 직접적으로 스타일 서식을 작성하여 적용하는 방법으로서 주로 테스트용으로 많이 활용함</p>
+    </div>
+
+    <hr>
+
+    <h2>Cascading 캐스캐이딩</h2>
+    <p>cascading은 '위에서 아래로 흐르는, 상속 또는 종속하는'의 의미를 가지고 있다.<br>따라서 <b>cascading은 선택자에 적용된 많은 스타일 중 어떤 스타일로 브라우저에 표현할지 결정해주는 원리를 의미</b>한다.</p><br>
+    <div class="box box_s">
+      <h3>1. 스타일 우선순위</h3>
+
+      <p>우선순위란 어떤 스타일을 먼저 적용할지 결정하는 규칙</p>
+      <p>1) 중요도 2) 적용범위 3)소스 순서</p>
+      <br>
+      <h4>1) 중요도</h4>
+      <p>중요도의 우선순위<br>
+      <b>1. 사용자 스타일 시트 > 2. 제작자가 만든 !important스타일 > 3.제작자가 만든 일단 스타일 > 4. 기본적인 브라우저 스타일</b></p>   
+      <p><b>사용자 스타일 시트</b>란 특별한 조건이 필요한 사용자가 본인의 필요에 맞게 구성해 놓은 스타일시트<br>사용자가 시스템에 저장한 스타일이기 때문에, 웹페이지 제작자가 스타일을 제어할 수 없음</p>
+      <p><b>제작자가 만든 !important스타일</b>은 웹페이지 제작자가 스타일 시트에 스타일을 만들 때 속성값 뒤에 !important라고 써놓은 것으로 다른 일반 스타일보다 최우선으로 적용되게 함</p>
+      <p><b>제작자가 만든 일단 스타일</b>은 css문서 작성을 통해 설정한 스타일</p>
+      <p><b>기본적인 브라우저 스타일</b>은 브라우저들마다 기본적으로 지정하고 있는 스타일로, 크롬, 익스플로러, 파이어폭스 등 웹브라우저들이 기보적으로 지정해놓은 스타일을 말함</p>
+      <br><br>
+
+      <h4>2) 적용범위</h4>
+      <p>하나의 요소에 여러 스타일이 충돌하게되면?<br>
+      기본적으로 스타일 적용 범위가 좁을수록 즉, 정확히 필요한 요소에만 적용할 스타일일수록 우선 순위가 높아지며, <b>1. 인라인 스타일 > 2. id 스타일 > 3.class 스타일 > 4. 태그 스타일</b> 순서에 따라 스타일이 적용됨</p>
+      <br>
+      <h4>3) 소스 순서</h4>
+      <p>중요도와 적용범위가 같다면 나중에 나온 스타일이 먼저 나온 스타일을 덮어씀</p>
+      <p>p{color:black;}라는 속성을 지정하고, 뒤에 다시 p{color:pink;}를 지정하면 <b>뒤에서 지정한 스타일을 적용함 즉 p태그의 color는 pink가 됨</b></p>
+    </div>
+    <div class="box box_s">
+      <h3>2. 스타일 상속</h3>
+      <p>스타일 시트(CSS)에서 <b>별도로 스타일을 지정하지 않으면, 부모 요소에 있는 스타일 속성들이 자식 요소로 자동으로 전달됨</b></p>
+      <p class="p01">모든 스타일 요소가 상속되는 것은 아님 - 배경색과 이미지는 스타일이 상속되지 않음</p>
+      <img src="./images/cascading.JPG" alt="캐스캐이딩">
+    </div>
+  </div>
+  <br>
+  </body>
+</html> 

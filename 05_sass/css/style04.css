@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap");
+body {
+  font-family: "Noto Sans KR", arial, sans-serif;
+  font-size: 13px;
+  color: #333;
+  width: 80%;
+  margin: 0px auto;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+#wrap {
+  background: #efefef;
+  width: 80%;
+  height: 150px;
+  margin: 0px auto;
+}
+
+#box01, #box02 {
+  height: 100px;
+}
+
+#box01 {
+  width: 80%;
+  background: rgb(236, 56, 56);
+  margin: 0px auto;
+}
+
+#box02 {
+  width: 80%;
+  background: rgb(183, 247, 183);
+  margin: 0px auto;
+}
+
+.btn {
+  width: 170px;
+  height: 30px;
+  border: 1px solid #777;
+  text-align: center;
+  color: #fff;
+  border-radius: 30px;
+}
+
+.btn03 {
+  background: #333;
+}
+
+.btn04 {
+  background: rgb(12, 202, 12);
+}
+
+.btn05 {
+  background: rgb(255, 196, 0);
+}
+
+.list01 li:first-child {
+  border: 1px solid #333;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+.list01 li:nth-child(2) {
+  border: 3px solid #333;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+.list01 li:nth-child(3) {
+  border: 3px double #333;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+.list01 li:last-child {
+  border: 1px dashed #333;
+  margin-bottom: 5px;
+  padding: 5px;
+}/*# sourceMappingURL=style.css.map */

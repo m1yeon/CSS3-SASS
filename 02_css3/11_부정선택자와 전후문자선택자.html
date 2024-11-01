@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/font_btn.css" type="text/css">
+  <title>CSS_11_부정선택자_전후문자선택자</title>
+  <style>
+    h2{padding: 20px 0px 5px 0px;}
+    h3{padding:5px 0px; font-size: 18px;}
+    .box{background: #eee; padding: 20px; border-radius: 20px; margin-bottom: 20px;}
+
+    article{width: 600px; background: #fff; padding: 15px; border-radius: 15px;}
+    .ex01{margin-bottom: 20px;}
+    .ex01 > h3::before{content: "[필독공지]"; color: #f00;}
+    .ex01 > h3::after{content: "\2605"; color: #ff5c8d;}
+    .ex01 > p::first-letter{font-size: 26px; font-weight: bold; background-color: #ff0;}
+    .ex01 > p::first-line{background: #bde8f1;}
+    /* 스타벅스 자주하는 질문 */
+    dl > dt::before{
+      content:"Q.";
+      display: inline-block;
+      width: 20px;
+      color: green;
+      font-weight: bold;
+    }
+
+    dl > dd::before{
+      content: "A. ";
+      display: inline-block;
+      color: #333;
+      width: 20px;
+      font-weight: bold;
+    }
+    dd{padding-left: 20px;}
+
+    /* 부정선택자 not */
+    ul.list02{display: flex; gap: 20px; margin: 10px 0px 10px 10px;}
+    ul.list02 > li{ background: rgba(0,0,0,.6); padding: 0px 10px; line-height: 30px; border-radius: 5px;}
+    ul.list02 > li.two{color: #ceedce; font-weight: bold;}
+    ul.list02 > li:not(.two){color: #eb5a57;}
+
+    /* 페이지네이션 */
+    .page_nav{list-style: none; display: flex;}
+    .page_nav > li{margin-left: 10px;}
+    .page_nav > li > a{
+      text-decoration: none;
+      color: #333;
+      display: block;
+      text-align: center;
+      height: 23px;
+    }
+    .page_nav > li > a:hover{text-decoration: underline;}
+    .page_nav > li:not(.next) > a{width: 23px;}
+    .page_nav > li:not(.next) > a:focus{color:#ceedce; border-radius: 3px; background: rgba(0,0,0,.6);}
+    .next > a{margin-left: 5px; padding-left: 10px; border-left: 1px solid #999;
+    width: 50px;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="../index.html" title="메인페이지 바로가기" class="b_btn">
+      <img src="../images/icon_home.png" alt="icon_home">
+    </a>
+    <h2>11_부정선택자_전후문자선택자</h2>
+    <br>
+    <!-- 1. 전후문자 선택자 -->
+    <div class="box">
+      <h3>1. 전후문자 선택자</h3>
+      <p>CSS3에서 추가된 선택자로 가상클래스(:)와 가상요소 선택자(::)가 있음</p>
+      <p>가상클래스는 사용자의 행동(action)이나 시스템의 상태(status)등 외부적인 요인에 의해서 웹브라우저에서<br> html문서와 특정 태그들을 발생할 수 있는 특정한 상태를 CSS표준으로 정의해 놓은 것을 말하며,<br> 대표적인 가상클래스는 :link :visited :hover :active :checked :focus :enabled :disabled가 있음</p>
+      <p>'가상요소'는 태그 내용의 특정 부분을 CSS표준으로 미리 지정한 것을 말하며<br>대표적인 가상요소에는 ::first-letter ::first-line ::before ::after등이 있음<br>가상클래스는 특정 부분에만 서식을 적용하기 위한 요소로 "::"기호를 사용함</p>
+      <br>
+      <h4>가상 요소 선택자(::)</h4>
+      <ul>
+        <li><b>::first-letter</b> : 문단의 첫줄의 첫글자만 선택</li>
+        <li><b>::first-line</b> : 문단의 첫줄을 선택</li>
+        <li><b>::before</b> : 사용자가 선택한 요소의 앞쪽을 선택</li>
+        <li><b>::after</b> : 사용자가 선택한 요소의 뒤쪽을 선택</li>
+      </ul>
+      <br>
+      <article class="ex01">
+        <h3>갤24, 조기등판? ...삼성전자 이번에도 '신의 한 수'통할까</h3>
+        <p>삼성전자가 차기 플래그십 스마트폰 갤럭시 S24 시리즈 신제품 발표일을 앞당기면서 갤럭시 S24 조기 등판 결정이 다시 한번 ‘신의 한 수’로 작용할 수 있을지 주목된다.</p>
+        <p>22일 IT 전문매체 샘모바일 등에 따르면 삼성전자는 내년 1월17일(현지시간) 갤럭시 언팩 행사를 열고 갤럭시 S24 시리즈를 공개할 예정이다. 통상 삼성전자는 매년 2월 초 갤럭시 언팩 행사를 열고 바(bar)형 스마트폰 라인업인 갤럭시S 시리즈를 공개해 왔다.</p>
+      </article>
+      <article class="ex02">
+        <h3>스타벅스 자주하는 질문</h3>
+          <dl>
+            <dt>질문</dt>
+            <dd>[온라인 스토어] 보낸 선물함이 사라졌는데, 과거에 선물한 이력은 어떻게 확인할 수 있나요?</dd>
+            <dd>Gift배송하기 서비스에서 ‘배송지 입력’을 기준으로 주문내역이 노출되었던 것과는 달리, 온라인 스토어 서비스에서는 ‘결제’를 기준으로 주문내역이 노출됩니다. </dl>
+      </article>
+    </div>
+    <!-- 2. 부정 선택자  -->
+    <div class="box">
+      <h3>2. 부정 선택자</h3>
+      <p>부정선택자는 가상클래스(:)선택자로서 사용자가 선택한 요소를 제외한 나머지를 a선택하고자 할 때 사용하는 선택자</p>
+      <p>작성법 <span class="t01">선택자:not(선택자){속성:값}</span></p>
+
+      <ul class="list02">
+        <li>hello</li>
+        <li class="two">hello</li>
+        <li>hello</li>
+        <li>hello</li>
+      </ul>
+    
+      <!-- 페이지네이션 -->
+      <ul class="page_nav">
+        <li><a href="javascript:void(0)" title="1">1</a></li>
+        <li><a href="javascript:void(0)" title="2">2</a></li>
+        <li><a href="javascript:void(0)" title="3">3</a></li>
+        <li><a href="javascript:void(0)" title="4">4</a></li>
+        <li><a href="javascript:void(0)" title="5">5</a></li>
+        <li><a href="javascript:void(0)" title="6">6</a></li>
+        <li><a href="javascript:void(0)" title="7">7</a></li>
+        <li><a href="javascript:void(0)" title="8">8</a></li>
+        <li><a href="javascript:void(0)" title="9">9</a></li>
+        <li><a href="javascript:void(0)" title="10">10</a></li>
+        <li class="next"><a href="javascript:void(0)" title="1" >다음 &#62;</a></li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

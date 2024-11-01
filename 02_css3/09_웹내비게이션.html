@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS_09_웹내비게이션</title>
+  <link rel="stylesheet" href="./css/font_btn.css" type="text/css">
+  <style>
+    h2,h3{padding: 20px 0px 5px 0px;}
+    h3{font-size: 18px;}
+    .box{
+      background: #eee;
+      padding: 20px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    a{text-decoration: none;}
+    ul.m_list{padding-left: 20px ;}
+    ul.m_list li{list-style: disc;}
+
+    /* nav01 */
+    .nav01{border: 1px solid #333; margin-top: 10px;}
+    .nav01 > ul > li{border-bottom: 1px solid #333; transition: 0.4s;}
+    .nav01 > ul > li:last-child{border-bottom: none;}
+    .nav01 > ul > li > a{ display: block; line-height: 45px; padding-left: 30px;}
+    .nav01 > ul > li:hover{background: rgb(232, 225, 208);}
+
+    /* nav02 */
+    .nav02{ margin-top: 10px;}
+    .nav02 > ul{display: flex; width: 100%; }
+    .nav02 > ul > li{ text-align: center; transition: 0.4s; background: rgb(232, 225, 208);}
+    .nav02 > ul > li > a{padding: 0px 30px; display: block; line-height: 45px;}
+    .nav02 > ul > li:hover{background: rgb(221, 203, 158);}
+
+    /* nav03 */
+    .nav03 > ul{display: flex; justify-content: space-around;}
+    .nav03 > ul > li{line-height: 45px;  position: relative;}
+    .nav03 > ul > li > a{display: block; padding: 0px 25px; font-weight: bold;}
+    .nav03 > ul > li > a:hover{color: #1ca01c}
+    .nav03 .sub{ position: absolute; width: 100%;}
+    .nav03 .sub> li{text-align: center;}
+    .nav03 .sub > li >a{color: #555; display: block;}
+    .nav03 .sub > li >a:hover{text-decoration: underline;}
+    .nav_wrap{background: rgb(183, 213, 192); height: 45px; overflow: hidden; transition: 0.5s; margin: 20px;  position: absolute;}
+  .nav_wrap:hover{height: 180px;}
+  
+  /* nav04 */
+    .nav04{background: #333; height: 80px; margin-top: 10px;}
+    .nav04 > ul{display: flex; padding-left: 20px;}
+    .nav04 > ul > li{padding-right: 15px;}
+    .nav04 > ul > li > a{color: #fff; line-height: 80px; padding-right: 15px; border-right: 1px solid #fff;}
+    .nav04 > ul > li:last-child > a{border-right: none;}
+    .nav04 > ul > li:hover > a{text-decoration: underline;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="../index.html" title="메인페이지 바로가기" class="b_btn">
+      <img src="../images/icon_home.png" alt="icon_home">
+    </a>
+    <h2>09_웹내비게이션</h2>
+    <p></p>
+    <p></p>
+    <p></p>
+    <ul class="m_list">
+      <li><b>웹페이지에서 사용자가 정보를 찾기 위한 가장 기본적인 수단으로서 내비게이션(메뉴)</b>라고 함</li>
+      <li>종류에는 메인메뉴, 서브메뉴, 검색메뉴 로그인메뉴, 사이드 메뉴, 드롭다운메뉴, 탭메뉴, 사용자의 현재 위치를 알려주는 '로케이션'메뉴 등이 있음</li>
+      <li>내비게이션은 메뉴 목록을 나열하기 위해서 목록 태그 요소 ul, li태그를 사용하며, a캐그 요소를 사용하여 하이퍼링크를 설정해줌</li>
+      <li><b>GNB</b> : Global Navigation Bar의 약자로 웹사이트에 가장 중심에 있는 메뉴를 작성할 때 사용하는 이름으로 메인메뉴라 하고, 헤더 영역에서 가독성 있게 표시해주는 것이 특징</li>
+      <li><b>LNB</b> : Local Navigation Bar의 약자로 메인메뉴 외 서브메뉴나 콘텐츠 영역에서 사용되는 메뉴 목록을 만들고자 할 때 사용하는 명칭</li>
+    </ul>
+    <br>
+    <div class="box">
+      <h3>1. 세로방향 내비게이션</h3>
+      <nav class="nav01">
+        <ul>
+          <li><a href="menu.html" title="메뉴소개">메뉴소개</a></li>
+          <li><a href="info.html" title="이용방법">이용방법</a></li>
+          <li><a href="news.html" title="새소식">새소식</a></li>
+          <li><a href="about.html" title="써브웨이">써브웨이</a></li>
+          <li><a href="franchise.html" title="가맹점">가맹점</a></li>
+          <li><a href="customer.html" title="고객센터">고객센터</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="box">
+      <h3>2. 가로방향 내비게이션</h3>
+      <nav class="nav02">
+        <ul>
+          <li><a href="menu.html" title="메뉴소개">메뉴소개</a></li>
+          <li><a href="info.html" title="이용방법">이용방법</a></li>
+          <li><a href="news.html" title="새소식">새소식</a></li>
+          <li><a href="about.html" title="써브웨이">써브웨이</a></li>
+          <li><a href="franchise.html" title="가맹점">가맹점</a></li>
+          <li><a href="customer.html" title="고객센터">고객센터</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="box">
+      <h3>3. 2단 내비게이션</h3>
+      <nav class="nav03 nav_wrap">
+        <ul>
+          <li><a href="menu.html" title="메뉴소개">메뉴소개</a>
+          <ul class="sub">
+            <li><a href="">샌드위치</a></li>
+            <li><a href="">스마일썹</a></li>
+            <li><a href="">아침메뉴</a></li>
+          </ul>
+          </li>
+          <li><a href="info.html" title="이용방법">이용방법</a>
+            <ul class="sub">
+              <li><a href="">서브메뉴</a></li>
+              <li><a href="">서브메뉴</a></li>
+              <li><a href="">서브메뉴</a></li>
+            </ul>
+          </li>
+          <li><a href="news.html" title="새소식">새소식</a>
+            <ul class="sub">
+              <li><a href="#">서브메뉴</a></li>
+              <li><a href="#">서브메뉴</a></li>
+              <li><a href="#">서브메뉴</a></li>
+            </ul>
+          </li>
+          <li><a href="about.html" title="써브웨이">써브웨이</a>
+            <ul class="sub">
+              <li><a href="#">서브메뉴</a></li>
+              <li><a href="#">서브메뉴</a></li>
+              <li><a href="#">서브메뉴</a></li>
+            </ul>
+          </li>
+          <li><a href="franchise.html" title="가맹점">가맹점</a>
+            <ul class="sub">
+              <li><a href="#">서브메뉴</a></li>
+              <li><a href="#">서브메뉴</a></li>
+              <li><a href="#">서브메뉴</a></li>
+            </ul>
+          </li>
+          <li><a href="customer.html" title="고객센터">고객센터</a>
+            <ul class="sub">
+              <li><a href="#">샌드위치</a></li>
+              <li><a href="#">샌드위치</a></li>
+              <li><a href="#">샌드위치</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav><br><br><br><br><br><br><br><br><br>
+    </div>
+    <div class="box">
+      <h3>4. 푸터영역에 들어가는 내비게이션</h3>
+      <nav class="nav04">
+        <ul>
+          <li><a href="#" title="이용약관">이용약관</a></li>
+          <li><a href="#" title="개인정보처리방침">개인정보처리방침</a></li>
+          <li><a href="#" title="써브카드">써브카드</a></li>
+          <li><a href="#" title="점주관리자">점주관리자</a></li>
+          <li><a href="#" title="Subway Listens">Subway Listens</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</body>
+</html>

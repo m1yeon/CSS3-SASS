@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS_03_선택자의 우선순위(Rank)_명시도</title>
+  <link rel="stylesheet" href="./css/font_btn.css" type="text/css">
+  <style>
+    .point{width: 500px; display: block;}
+    .box{
+      background: #eee;
+      padding: 20px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+  
+    .c_btn{margin: 0px; padding: 0px; display: flex;}
+    .c_btn > li{
+      width: 15px; height: 15px;
+      border-radius: 50%;
+      background: #ccc;
+      list-style:none;
+      margin: 0px 5px;
+    }
+    .active{background-color: #555 !important;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="../index.html" title="메인페이지 바로가기" class="b_btn">
+      <img src="../images/icon_home.png" alt="icon_home">
+    </a>
+    <h2>03_선택자의 우선순위(Rank)_명시도</h2>
+    <p>CSS는 서식을 적용할 때 첫줄부터 적용하고, 아래줄에 있는 서식을 순차적으로 내려가면서 적용함<br>
+    이것을 cascading이라고 하며, 만약 부모태그에 서식이 적용되어 있다면 부모의 서식을 기준으로 상속받아 자식 요소에 서식이 적용되는데, 이런 우선순위 규칙을 스타일 오버로딩(style overloading)이라고 함
+    </p><br>
+    <div class="box">
+      <h3>1. 선택자의 우선 순위</h3>
+      <p>!important > inline > #id > .class > tag > 외부스타일 서식(css)순으로 적용</p>
+      <img src="./images/point.jpg" alt="명시도" class="point">
+      <img src="./images/point.png" alt="명시도" class="point">
+    </div>
+    <div class="box">
+      <h3>2. UI/UX 디자인 구성요소 _ 콘트롤버튼(페이지내이션)</h3>
+      <p><b>페이지내이션</b> : 이미지 개수, 현이미지 위치, 클릭시 해당 이미지가 보여짐</p>
+      <ul class="c_btn">
+        <li>&nbsp;</li>
+        <li>&nbsp;</li>
+        <li class="active">&nbsp;</li>
+        <li>&nbsp;</li>
+      </ul>
+      <br>
+      <p>선택자의 종류에 따라 명시도 점수가 달라진다. 그림에서 보는 바와 같이 인라인 스타일은 1000점, #id선택자는 100점, .class선택자는 10점, tag선택자는 1점을 부여 받는다.</p>
+      <p>선택자 사용시 '부모 > 자식요소'또는 "부모 후손"처럼 사용하면 더 많은 명시도 점수를 얻을 수 있지만 예2) 처럼 나중에 선언된 것(순차적)이 우선 적용 됨(cascading)</p>
+      <p>예1) ul#primary-nav li.active은 명시도 몇점? <b>101 11 =>112</b></p> 
+      <p>예2) p > span{color:blue;} 와 div span {color:red;}은 명시도 몇점? <b>2</b></p>
+    </div>
+
+  </div>
+</body>
+</html>

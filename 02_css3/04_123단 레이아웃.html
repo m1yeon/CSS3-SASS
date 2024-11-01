@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS_04_1단, 2단, 3단 레이아웃</title>
+  <link rel="stylesheet" href="./css/font_btn.css" type="text/css">
+  <style>
+    .box{
+      width: 98%;
+      margin: 0px auto 30px auto;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+      overflow: hidden;
+      background-color: #eee;
+    }
+    /* 그룹선택자( , ) */
+    header, main, footer{height: fit-content;}
+
+  
+    /* box1 */
+    header{
+      background: #eee;
+      padding: 10px 20px;
+    }
+
+    main{
+      height: fit-content;
+      background: #C0D8C0;
+    }
+    .box1 main{padding: 10px 20px;}
+
+    footer{
+      padding: 10px 20px;
+      height: fit-content;
+      background: #777;
+      font-size: 14px;
+    }
+    footer h3, footer h4, footer p, footer address{color: #fff;}
+    .box1 section{background: #F5EEDC;}
+    .box1 article{ background: rgb(199, 225, 233); width: 96%; margin: 0 auto;}
+    .box1 aside{width: 96%; margin: 0 auto;}
+
+    /* box2 */
+    .box2 header{}
+    .box2 main{height: 300px;}
+    .box2 footer{}
+    .clear::after{
+      clear: both;
+      display: block;
+      content: "";
+    }
+    .box2 main > section{float: left; height: 100%; background: #ECB390; width: 60%;}
+    .box2 main > article{float: right; background: #F5EEDC; height: 200px; width: 40%;}
+
+    /* box3 */
+    .box3 main > div{display: flex; height: 200px; flex-direction: row-reverse;}
+    #left_con{background: lightgoldenrodyellow; width: 30%;}
+    #center_con{background: lightcoral; width: 40%;}
+    #right_con{background: lightpink; width: 30%;}
+
+    .title{
+      display: inline-block;
+      width: 98%; height: 45px;
+      line-height: 45px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 600;
+      background: #333; color: #fff;
+      margin-left: 1%;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="../index.html" title="메인페이지 바로가기" class="b_btn">
+      <img src="../images/icon_home.png" alt="icon_home">
+    </a>
+    <h2>04_1단, 2단, 3단 레이아웃</h2>
+    <br>
+    <span class="title">1단 레이아웃</span>
+    <div class="box box1">
+      <!-- 1. 상단헤더영역 시작 -->
+      <header>
+        <h3>header</h3>
+        <p>웹페이지의 상단 영역으로 로고, 내비게이션, 검색, 로그인/회원가입, 마이페이지, 언어설정, 장바구니, 모바일 토글 버튼 등</p>
+      </header>
+  
+      <!-- 2. 메인영역 시작 -->
+      <main>
+        <h3>main</h3>
+        <p>main 영역은 콘텐츠 영역으로서 웹페이지의 다양한 콘텐츠 내용이 들어가며 section, article, aside 태그로 작성</p>
+        <section>
+          <h4>section</h4>
+          <p>section태그는 독립적인 콘텐츠들을 묶고자 할 때 사용하며, 제목요소 h2~h6태그를 작성해야 함<br>제목이 없을 시 html마크업 검사시 경고창이 뜸</p>          
+          
+          <article>
+            <h4>article</h4>
+            <p>article태그는 section태그 안에서 또는 밖에서 독립적인 내용을 작성하고자 할 때 사용하며, section태그처럼 제목요소 h2~h6태그가 나와야 마크업 검사시 요류가 발생하지 않음</p>
+          </article>
+        </section>
+
+        <article>
+          <h4>article</h4>
+          <p> article태그는 section 태그 밖에서도 사용이 가능하다.(section과 무관한 내용일 경우)</p>
+        </article>
+  
+        <aside>
+          <h4>aside</h4>
+          <p>aside태그는 콘텐츠 영역의 왼쪽/ 오른쪽 사이드에 위치하는 영역으로서 쇼핑몰 '최근 본 상품', '보험회사(삼성화재) 상담문의' 등 사이드에 배치하는 콘텐츠이다.
+          </p>
+        </aside>
+      </main>
+  
+      <!-- 3. 푸터영역 시작 -->
+      <footer>
+        <h3>footer</h3>
+        <p>웹페이지의 하단영역으로서 하단로고, 회사소개, 이용약관, 개인정보처리방침, 회사주소, 연락처, 대표자명, 사업자번호, 통신판매업신고번호, 관리자 이메일, 카피라이트 등의 정보가 들어간다.</p>
+        <h4>address</h4>
+        <address>
+          주소는 adress태그를 사용하여 작성하며 글자가 기울임으로 표시되지만 css에서 font-style:normal;로 보통글자로 표시해준다.
+        </address>
+      </footer>
+    </div>
+
+    <span class="title">2단 레이아웃</span>
+    <div class="box box2">
+      <!-- 1. 상단헤더영역 시작 -->
+    <header>
+      <h3>header</h3>
+    </header>
+
+    <!-- 2. 메인영역 시작 -->
+    <main class="clear">
+      <section>
+        <h3>section</h3>
+        <article><h4>첫 번째 article</h4></article>
+        <article><h4>두 번째 article</h4></article>
+      </section>
+      
+      <article><h3>세번째 article</h3></article>
+
+      <aside><h3>aside</h3></aside>
+    </main>
+
+    <!-- 3. 푸터영역 시작 -->
+    <footer>
+      <h3>footer</h3>
+    </footer>
+    </div>
+
+    <span class="title">3단 레이아웃</span>
+    <div class="box box3">
+      <!-- 1. 상단헤더영역 시작 -->
+      <header>
+        <h3>header</h3>
+      </header>
+      <!-- 2. 메인영역 시작 -->
+      <main>
+        <p>display: flex; 속성으로 가로배치</p>
+        <p>flex-direction: row-reverse; 로 가로배치된 요소 반대로 뒤집기</p>
+        <div>
+          <article id="left_con"><h4>article</h4>1단 왼쪽</article>
+          <article id="center_con"><h4>article</h4>2단 가운데</article>
+          <article id="right_con"><h4>article</h4>3단 오른쪽</article>
+        </div>
+      </main>
+      <!-- 3. 푸터영역 시작 -->
+      <footer><h3>footer</h3></footer>
+    </div>
+  </div>
+</body>
+</html>

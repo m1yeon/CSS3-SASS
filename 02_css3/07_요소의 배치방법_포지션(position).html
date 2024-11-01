@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang='ko'>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>CSS_07_요소의 배치 방법_포지션(position)</title>
+		<link rel="stylesheet" href="./css/font_btn.css" type="text/css">
+		<link rel="stylesheet" href="./css/07_position.css" type="text/css">
+  <style>
+    h2,h3{padding: 20px 0px 5px 0px;}
+    h3{font-size: 18px;}
+    .box{
+      background: #eee;
+      padding: 0px 20px 20px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+		</style>
+		</head>
+	<body>
+	<div class="wrap">
+    <a href="../index.html" title="메인페이지 바로가기" class="b_btn">
+      <img src="../images/icon_home.png" alt="icon_home">
+    </a>
+		<h2 class="title">07_요소의 배치 방법_포지션(position)</h2>
+		<p><b>포지션(position) 속성이란?</b><br>
+			레이아웃 작업시 사용자가 부모요소 박스안에서 원하는 콘텐츠를 선택하여 배치하기 위한 속성으로서</p>
+			<p>1. static(요소가 가지고 있는 기본 위치값), <br>
+			2. absolute(절대배치), <br>
+			3. relatice(상대배치), <br>
+			4. fixed(고정배치), <br>
+			5. inherit(상속)의 종류가 있다.</p>
+			<p>포지션 속성 사용시 위치를 지정하기 위해 top, bottom, right, left속성을 사용함</p>
+			<p>포지션 속성을 사용하면 float속성처럼 콘텐츠끼리 겹침현상이 나타나는데, 겹친 요소들의 위, 아래 순서를 변경하기 위해 <b>z-index</b>속성을 사용해줌</p>
+			<p>z-index속성은 먼저 작성된 태그가 z-index값이 0이며, 나중에 작성된 태그 순서대로 번호가 자동으로 매겨짐.</p>
+			<br>
+			<div class="box">
+				<h3>1. 절대배치(absolute)</h3>
+				<p>absolute속성은 사용자가 선택한 요소를 브라우저의 왼쪽 상단을 기준으로 배치하고자 할 때 사용하며,<br> 만약 감싸는 부모요소가(relative 속성일 때) 있을 경우 부모요소의 왼쪽 상단이 기준이 됨.</p>
+			</div>
+			<div class="box">
+				<h3>2. 상대배치(relative)</h3>
+				<p>절대배치와는 다르게 현재 요소가 있는 위치가 기준이 되어 위치를 지정하고자 할 때 사용</p>
+			</div>
+			<div class="box">
+				<h3>3. 고정배치(fixed)</h3>
+				<p>고정 배치 방식은 사용자가 브라우저의 크기나 스크롤을 내릴 때 사용자가 지정한 위치에 멈추어 있듯이 고정 배치하는 방식임</p>
+			</div>
+
+			<div class="box_wrap">
+				<div class="box01">자손</div>
+				<div class="box02">자손</div>
+				<div class="box03">자손</div>
+			</div>
+	</div>
+
+	<a href="#" title="위로 올라가기" class="top_btn">TOP</a>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	</body>
+</html>

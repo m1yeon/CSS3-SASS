@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/font_btn.css" type="text/css">
+  <title>CSS_13_CSS 크기 단위</title>
+  <style>
+    h2{padding: 20px 0px 5px 0px; }
+    h3{padding:5px 0px 10px 0px; font-size: 20px; margin-top: 0px;}
+    p{font-size: 16px;}
+    a{color: #333;}
+    a:hover{text-decoration: none;}
+    .box{background: #eee; padding: 20px; border-radius: 20px; margin-bottom: 20px;}
+
+    header, footer{height: 50px; padding: 0 4.83%; line-height: 50px;}
+    header{background: #C0D8C0;  font-size: 100%; }
+    main{background: #F5EEDC; margin: 15px 0px; padding: 4.83%; font-size: 1.2em;}
+    main > section{font-size: 1.5em; /*배수 단위로서 바로위 부모요소 크기를 물려받음*/}
+    main > article{font-size: 1.5rem; /*브라우저 원래 크기인 16px을 기준으로 크기를 정하는 단위*/}
+    footer{background: #524A4E; color: #fff;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="../index.html" title="메인페이지 바로가기" class="b_btn">
+      <img src="../images/icon_home.png" alt="icon_home">
+    </a>
+    <h2>13_CSS 크기 단위</h2>
+    <ul>
+      <li><b>px</b>: 화면 비율에 상관없이 고정되는 단위</li>
+      <li><b>em</b>: 부모 요소의 font-size를 상속받아 크기가 결정되는 단위</li>
+      <li><b>rem</b>: root의 약자로 부모의 폰트크기를 상속받지 않고 최상위(html)요소에서 결정된 폰트크기를 기준으로 크기가 결정되는 단위 (16px = 1rem)</li>
+      <li><b>vh</b>: view height의 약자로 웹브라우저의 높이를 100으로 기준하여 높이 크기가 결정됨</li>
+      <li><b>vw</b>: view width의 약자로 웹브라우저의 가로를 100으로 기준하여 너비 크기가 결정됨</li>
+      <li><b>vmin</b>: 높이와 너비 중 짧은 쪽으로 100 기준하여 크기가 결정됨</li>
+      <li><b>vmax</b>: 높이와 너비 중 긴쪽으로 100 기준하여 크기가 결정됨</li>
+      <li><b>%</b>: 부모 요소를 기준으로 비율을 표현하는 단위(반응형에서 주로 많이 사용됨)</li>
+    </ul>
+    <br>
+    <div class="box">
+      <header>header</header>
+      <main>main 1.2em
+        <section>1.5em</section>
+        <article>1.5rem</article>
+        <article>1.5rem</article>
+        <article>1.5rem</article>
+        <article>1.5rem</article>
+      </main>
+      <footer>footer</footer>
+    </div>
+  </div>
+</body>
+</html>
